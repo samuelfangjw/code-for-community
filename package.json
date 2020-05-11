@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "code-for-community",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Code for Community Website!",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "CSP",
   "dependencies": {
     "gatsby": "^2.21.21",
     "gatsby-image": "^2.4.3",
@@ -22,7 +22,7 @@
     "prettier": "2.0.5"
   },
   "keywords": [
-    "gatsby"
+    "Code for Community"
   ],
   "license": "MIT",
   "scripts": {
