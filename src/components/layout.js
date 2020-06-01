@@ -26,18 +26,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header/>
-      <div
-        style={{
-          margin: `auto`,
-          maxWidth: 960,
-          padding: `1rem 1rem`,
-        }}
-      >
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}
         </footer>
-      </div>
     </>
   )
 }

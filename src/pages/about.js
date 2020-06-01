@@ -1,16 +1,71 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Cat from "../images/cat1.jpg"
 
+import Banner from "../content/about/about_cover.jpg"
+import AboutCard from "../components/AboutCard"
+
+//temp imports
+import Bimlesh from "../content/about/bimlesh/bimlesh.jpg"
+const bimleshbio = "Dr. Bimlesh Wadhwa is Senior Lecturer of Computer Science and Assistant Dean (Student Life) of the School of Computing at the National University of Singapore (NUS)." +
+"She founded 'Code For Community' in March 2015. She is passionate about tech, diversity and igniting potential in underserved. She believes tech skills could empower underserved communities building their" + "confidence and encouraging them into education, entrepreneurship and employment";
+
+const bannerStyles = {
+    width: '100%',
+    background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${Banner})`,
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+}
+
+const bannerTextStyles = {
+    padding: '10%',
+    color: 'white',
+}
+
+const BannerContainer = () => (
+    <div style={bannerStyles}>
+        <div style={bannerTextStyles}>
+            <h1> Welcome! </h1>
+            <h2>CodeForCommunity is an umbrella project of SoC Family, a network of SoC Students, 
+            Staff and Alumni who take great pride in helping develop the projects for underserved 
+            communities.</h2>
+        </div>
+    </div>
+)
+
+// const PartnerCardStyles = {
+
+// }
+
+const PartnerCard = props => (
+    <div>
+        <img src={props.img} alt="" style={{borderRadius: '50%'}} />
+        {props.name}
+    </div>
+)
+
+// const PartnerContainerStyles = {
+
+// }
+
+const PartnerContainer = () => (
+    <div>
+        <PartnerCard img={Bimlesh} name="Test"></PartnerCard>
+    </div>
+)
 
 const AboutPage  = () => (
     <Layout>
-    <SEO title="About" />
-    <h1>About Page!</h1>
-    <img src={Cat} alr="" width='100%'></img>
-    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia mattis consectetur. Fusce eleifend dui sed venenatis imperdiet. Quisque rutrum justo in libero volutpat, nec imperdiet turpis maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas massa velit, fermentum eget tempus sit amet, posuere id mauris. Nunc diam mi, lobortis dapibus convallis et, scelerisque et felis. Nam auctor nisl dui, vitae dictum erat ultrices laoreet. Sed vestibulum ullamcorper augue id sodales. Vivamus vitae diam eros. Duis egestas ultrices lorem, in vehicula eros consequat in. Vestibulum tincidunt odio id porta vehicula.</h3> 
-    <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas lacinia mattis consectetur. Fusce eleifend dui sed venenatis imperdiet. Quisque rutrum justo in libero volutpat, nec imperdiet turpis maximus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas massa velit, fermentum eget tempus sit amet, posuere id mauris. Nunc diam mi, lobortis dapibus convallis et, scelerisque et felis. Nam auctor nisl dui, vitae dictum erat ultrices laoreet. Sed vestibulum ullamcorper augue id sodales. Vivamus vitae diam eros. Duis egestas ultrices lorem, in vehicula eros consequat in. Vestibulum tincidunt odio id porta vehicula.</h3>
+    <BannerContainer/>
+    <h1 style={{textAlign: "center", margin: "20px auto"}}>
+        Meet the Team!
+    </h1>
+    <h2>Advisors</h2>
+    <AboutCard img={Bimlesh} name="Dr. Bimlesh Wadha" title="Assistant Dean, Student Life" bio={bimleshbio}/>
+    <h2>Operations</h2>
+    <AboutCard img={Bimlesh} name="Dr. Bimlesh Wadha" title="Assistant Dean, Student Life" bio={bimleshbio}/>
+    <h2>Our Partners</h2>
+    <PartnerContainer/>
     </Layout>
 )
 
