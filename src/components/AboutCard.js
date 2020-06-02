@@ -51,7 +51,7 @@ const AboutCard = ({about}) => {
     <Container>
         <ImageContainer>
             <span>
-                {/* <img src={img} alt="picture" style={{borderRadius: "50%"}}/> */}
+                <img src={img} alt="picture" style={{borderRadius: "50%"}}/>
             </span>
         </ImageContainer>
         <TextContainer name={name} role={role} description={description}></TextContainer>
