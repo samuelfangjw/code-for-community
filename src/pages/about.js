@@ -1,12 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 import Banner from "../content/about/about_cover.jpg"
 import AboutCard from "../components/AboutCard"
 
 //temp imports
-import Bimlesh from "../content/about/bimlesh/bimlesh.jpg"
+import Bimlesh from "../content/about/advisors/bimlesh/bimlesh.jpg"
 const bimleshbio = "Dr. Bimlesh Wadhwa is Senior Lecturer of Computer Science and Assistant Dean (Student Life) of the School of Computing at the National University of Singapore (NUS)." +
 "She founded 'Code For Community' in March 2015. She is passionate about tech, diversity and igniting potential in underserved. She believes tech skills could empower underserved communities building their" + "confidence and encouraging them into education, entrepreneurship and employment";
 
@@ -33,14 +34,14 @@ const BannerContainer = () => (
     </div>
 )
 
-// const PartnerCardStyles = {
+const PartnerCardStyles = {
+  width: '100px',
+}
 
-// }
-
-const PartnerCard = props => (
-    <div>
-        <img src={props.img} alt="" style={{borderRadius: '50%'}} />
-        {props.name}
+const PartnerCard = ({data}) => (
+    <div style={PartnerCardStyles}>
+        <Img fluid={data.node.frontmatter.profilePicture.childImageSharp.fluid} imgStyle={{borderRadius: '50%'}} />
+        {data.node.frontmatter.name}
     </div>
 )
 
@@ -48,30 +49,33 @@ const PartnerCard = props => (
 
 // }
 
-const PartnerContainer = () => (
+const PartnerContainer = ({data}) => (
     <div>
-        <PartnerCard img={Bimlesh} name="Test"></PartnerCard>
+        <PartnerCard data={data.edges[0]}/>
+        <PartnerCard data={data.edges[1]}/>
+        <PartnerCard data={data.edges[2]}/>
+        <PartnerCard data={data.edges[3]}/>
     </div>
 )
 
 const AboutPage  = ({data}) => (
     <Layout>
     <BannerContainer/>
-    <h1>{data.bimlesh.edges[0].node.frontmatter.name}</h1>
     <h1 style={{textAlign: "center", margin: "20px auto"}}>
         Meet the Team!
     </h1>
     <h2>Advisors</h2>
     <AboutCard about={data.bimlesh.edges[0].node.frontmatter}/>
     <h2>Operations</h2>
-    {/* <AboutCard img={Bimlesh} name="Dr. Bimlesh Wadha" title="Assistant Dean, Student Life" bio={bimleshbio}/> */}
+    <AboutCard about={data.adele.edges[0].node.frontmatter}/>
     <h2>Our Partners</h2>
-    <PartnerContainer/>
+    <PartnerContainer data={data.partners}/>
     </Layout>
 )
 
 export default AboutPage
 
+//GraphQL Query
 export const pageQuery = graphql`
   query teamQuery {
     bimlesh: allMarkdownRemark(
@@ -86,16 +90,20 @@ export const pageQuery = graphql`
             role
             description
             profilePicture {
-              relativePath
+              childImageSharp {
+                fluid(maxWidth: 200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }
       }
     }
-  
-  	adelle: allMarkdownRemark(
+
+  	adele: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: {regex: "/adelle/"}
+        fileAbsolutePath: {regex: "/adele_chiew/"}
       }
     ) {
       edges {
@@ -105,7 +113,11 @@ export const pageQuery = graphql`
             role
             description
             profilePicture {
-              relativePath
+              childImageSharp {
+                fluid(maxWidth: 200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }
@@ -126,7 +138,11 @@ export const pageQuery = graphql`
           frontmatter {
             name
             profilePicture {
-              relativePath
+              childImageSharp {
+                fluid(maxWidth: 300) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
             }
           }
         }

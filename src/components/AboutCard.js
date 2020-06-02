@@ -17,8 +17,8 @@ const Container = ({children}) => (
 
 const ImageStyle = {
     display: 'inline-block',
-    width: '20rem',
-    height: '20rem',
+    width: '15rem',
+    height: '15rem',
 }
 
 const ImageContainer = ({children}) => (
@@ -43,7 +43,7 @@ const TextContainer = ({name, role, description}) => (
 
 const AboutCard = ({about}) => {
     const name = about.name;
-    const img = about.profilePicture.relativePath;
+    const img = about.profilePicture.childImageSharp.fluid;
     const role = about.role;
     const description = about.description;
 
@@ -51,7 +51,7 @@ const AboutCard = ({about}) => {
     <Container>
         <ImageContainer>
             <span>
-                <img src={img} alt="picture" style={{borderRadius: "50%"}}/>
+                <Img fluid={img} imgStyle={{borderRadius: '50%'}}/>
             </span>
         </ImageContainer>
         <TextContainer name={name} role={role} description={description}></TextContainer>
