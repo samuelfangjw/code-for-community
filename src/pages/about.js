@@ -54,19 +54,83 @@ const PartnerContainer = () => (
     </div>
 )
 
-const AboutPage  = () => (
+const AboutPage  = ({data}) => (
     <Layout>
     <BannerContainer/>
+    <h1>{data.bimlesh.edges[0].node.frontmatter.name}</h1>
     <h1 style={{textAlign: "center", margin: "20px auto"}}>
         Meet the Team!
     </h1>
     <h2>Advisors</h2>
-    <AboutCard img={Bimlesh} name="Dr. Bimlesh Wadha" title="Assistant Dean, Student Life" bio={bimleshbio}/>
+    <AboutCard about={data.bimlesh.edges[0].node.frontmatter}/>
     <h2>Operations</h2>
-    <AboutCard img={Bimlesh} name="Dr. Bimlesh Wadha" title="Assistant Dean, Student Life" bio={bimleshbio}/>
+    {/* <AboutCard img={Bimlesh} name="Dr. Bimlesh Wadha" title="Assistant Dean, Student Life" bio={bimleshbio}/> */}
     <h2>Our Partners</h2>
     <PartnerContainer/>
     </Layout>
 )
 
 export default AboutPage
+
+export const pageQuery = graphql`
+  query teamQuery {
+    bimlesh: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: {regex: "/bimlesh/"}
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            name
+            role
+            description
+            profilePicture {
+              relativePath
+            }
+          }
+        }
+      }
+    }
+  
+  	adelle: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: {regex: "/adelle/"}
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            name
+            role
+            description
+            profilePicture {
+              relativePath
+            }
+          }
+        }
+      }
+    }
+  
+  	partners: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: {regex: "/partners/"}
+      }
+      sort: {
+        fields: [frontmatter___order]
+        order: ASC
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            name
+            profilePicture {
+              relativePath
+            }
+          }
+        }
+      }
+    }
+  }
+`;

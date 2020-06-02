@@ -1,4 +1,6 @@
 import React from "react";
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const ContainerStyle = {
     display: 'block',
@@ -30,24 +32,31 @@ const TextStyle = {
     textAlign: 'justify',
 }
 
-const TextContainer = ({name, title, bio}) => (
+const TextContainer = ({name, role, description}) => (
     <div style={TextStyle}>
         <p style={{margin: "0"}}>{name}</p>
-        <p>{title}</p>
-        <p>{bio}</p>
+        <p>{role}</p>
+        <p>{description}</p>
     </div>
 )
 
 
-const AboutCard = ({img, name, title, bio}) => (
+const AboutCard = ({about}) => {
+    const name = about.name;
+    const img = about.profilePicture.relativePath;
+    const role = about.role;
+    const description = about.description;
+
+    return (
     <Container>
         <ImageContainer>
             <span>
-                <img src={img} alt={title} style={{borderRadius: '50%'}}/>
+                {/* <img src={img} alt="picture" style={{borderRadius: "50%"}}/> */}
             </span>
         </ImageContainer>
-        <TextContainer name={name} title={title} bio={bio}></TextContainer>
+        <TextContainer name={name} role={role} description={description}></TextContainer>
     </Container>
-)
+    )
+}
 
 export default AboutCard;
