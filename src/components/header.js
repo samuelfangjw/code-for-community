@@ -50,7 +50,7 @@ const Header = () => (
         <ul style={{ listStyle: `none`, float: `right` }}>
           <HomeLink to="/">Home</HomeLink>
           <ListLink to="/about/">About</ListLink>
-          <ListLink to="/projects/">Projects</ListLink>
+          <ListLink to="/programmes/">Programmes</ListLink>
         </ul>
       </header>
 

@@ -2,22 +2,55 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProjectCard from "../components/ProjectCard"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
-const content = ( //consider abstracting this away
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend imperdiet vestibulum. Donec nec metus ac lacus mollis convallis. Mauris vulputate ullamcorper lectus, vitae ornare neque finibus nec. Donec aliquet efficitur nunc. Fusce mattis ex a nunc viverra, vel euismod neque cursus. Morbi vitae pellentesque erat. Aenean iaculis molestie ligula, eu porta nisl. Vestibulum sapien elit, dictum vitae lorem a, pharetra faucibus purus."
-)
+const content = "";
 
-const ProjectsPage  = () => (
+const ProjectsPage = ({data}) => {
+    const testContent = data.allMarkdownRemark.edges.map(edge => 
+        <div style={{width:"200px"}}>
+            <Img fluid={edge.node.frontmatter.image.childImageSharp.fluid} />
+            <h1>{edge.node.frontmatter.name}</h1>    
+        </div>
+    )
+
+return (
     <Layout>
     <SEO title="Projects"/>
-    <h1>Current Projects!</h1>
-    <p>Our Current Projects!</p>
+    <h1>Current Programmes!</h1>
+    <p>Our Current Programmes!</p>
     <div style={{ position: 'relative', marginBottom: `1.45rem` }}>
         <ProjectCard link="/programmes/" img="" title="Kickstart" content={content}></ProjectCard>
-        <ProjectCard link="/programmes/" img="" title="Data Science" content={content}></ProjectCard>
+        <h1>Past Programmes</h1>
+        <div>{testContent}</div>
     </div>
     </Layout>
-)
+)}
 
 export default ProjectsPage
 
+export const pageQuery = graphql`
+  query programmeQuery {
+    allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: {regex: "/programmes/"}
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            name
+            image {
+              childImageSharp {
+                fluid(maxWidth: 200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
