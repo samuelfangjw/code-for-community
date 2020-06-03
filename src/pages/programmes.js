@@ -13,10 +13,11 @@ const ProjectsPage  = () => (
     <h1>Current Projects!</h1>
     <p>Our Current Projects!</p>
     <div style={{ position: 'relative', marginBottom: `1.45rem` }}>
-        <ProjectCard link="/projects/kickstart/" img="" title="Kickstart" content={content}></ProjectCard>
-        <ProjectCard link="/projects/datascience/" img="" title="Data Science" content={content}></ProjectCard>
+        <ProjectCard link="/programmes/" img="" title="Kickstart" content={content}></ProjectCard>
+        <ProjectCard link="/programmes/" img="" title="Data Science" content={content}></ProjectCard>
     </div>
     </Layout>
 )
 
 export default ProjectsPage
+

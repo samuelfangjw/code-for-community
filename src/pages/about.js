@@ -6,11 +6,6 @@ import Img from "gatsby-image"
 import Banner from "../content/about/about_cover.jpg"
 import AboutCard from "../components/AboutCard"
 
-//temp imports
-import Bimlesh from "../content/about/advisors/bimlesh/bimlesh.jpg"
-const bimleshbio = "Dr. Bimlesh Wadhwa is Senior Lecturer of Computer Science and Assistant Dean (Student Life) of the School of Computing at the National University of Singapore (NUS)." +
-"She founded 'Code For Community' in March 2015. She is passionate about tech, diversity and igniting potential in underserved. She believes tech skills could empower underserved communities building their" + "confidence and encouraging them into education, entrepreneurship and employment";
-
 const bannerStyles = {
     width: '100%',
     background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${Banner})`,
