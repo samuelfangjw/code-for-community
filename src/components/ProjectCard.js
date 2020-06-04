@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
 
 const ContainerStyle = {
     position: 'relative',
@@ -15,24 +16,13 @@ const ContainerStyle = {
     color: 'black'
 }
 
-const Container = ({children}) => (
-    <div style={ContainerStyle}>
-        {children}
-    </div>
-)
-
 const ImageStyle = {
+    width: '100%',
     alignSelf: 'center',
     gridColumn:'1',
     gridRow: '1 / 3',
     margin: '0.5rem'
 }
-
-const ImageContainer = ({children}) => (
-    <div style={ImageStyle}>
-        {children}
-    </div>
-)
 
 const TitleStyle = {
     gridColumn:'2',
@@ -57,17 +47,18 @@ const ContentStyle = {
     margin: '0.5rem'
 }
 
-const ProjectCard = ({link, img, title, content}) => (
-    <Link to={link} style={{textDecoration: 'none'}}>
-        <Container>
-            <ImageContainer>
-                <img src={img} alt={title}></img>
-            </ImageContainer>
+//image doesn't work with containerStyle for some reason
+const ProjectCard = ({data}) => (
+    <Link to={data.node.frontmatter.link} style={{textDecoration: 'none'}}>
+        <div style={ContainerStyle}>
+            <div style={ImageStyle}>
+                <Img fluid={data.node.frontmatter.image.childImageSharp.fluid}/>
+            </div>
             <TitleContainer>
-                {title}
+                {data.node.frontmatter.name}
             </TitleContainer>
-            <div style={ContentStyle}>{content}</div>
-        </Container>
+            <div style={ContentStyle}>{data.node.frontmatter.description}</div>
+        </div>
     </Link>
 )
 
