@@ -31,6 +31,7 @@ const BannerContainer = () => (
 
 const PartnerCardStyles = {
   width: '100px',
+  margin: '20px'
 }
 
 const PartnerCard = ({data}) => (
@@ -40,22 +41,28 @@ const PartnerCard = ({data}) => (
     </div>
 )
 
-// const PartnerContainerStyles = {
-
-// }
+const flexStyle = {
+  width: "100%",
+  display: "flex",
+  flexFlow: "row wrap",
+  justifyContent: "space-evenly"
+}
 
 const PartnerContainer = ({data}) => (
-    <div>
-        <PartnerCard data={data.edges[0]}/>
-        <PartnerCard data={data.edges[1]}/>
-        <PartnerCard data={data.edges[2]}/>
-        <PartnerCard data={data.edges[3]}/>
+    <div style={flexStyle}>
+      {data.edges.map(edge => 
+        <PartnerCard data={edge}/>
+      )}
     </div>
 )
 
 const AboutPage  = ({data}) => (
     <Layout>
     <BannerContainer/>
+    <h1>About Us</h1>
+    <p> 
+    Code for community is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
     <h1 style={{textAlign: "center", margin: "20px auto"}}>
         Meet the Team!
     </h1>

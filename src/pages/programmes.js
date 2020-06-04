@@ -8,7 +8,7 @@ import Img from "gatsby-image"
 const flexStyle = {
   display: "flex",
   flexFlow: "row wrap",
-  flexStyle: "space-evenly"
+  justifyContent: "space-evenly"
 }
 
 const ProjectsPage = ({data}) => {
