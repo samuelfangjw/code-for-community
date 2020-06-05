@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Navbar from "./navbar/Navbar"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header/>
+      <Navbar/>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}
