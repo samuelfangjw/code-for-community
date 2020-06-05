@@ -44,10 +44,9 @@ const ContentStyle = {
     gridColumn: '2',
     gridRow: '2',
     textAlign: 'justify',
-    margin: '0.5rem'
+    margin: '0.5rem',
 }
 
-//image doesn't work with containerStyle for some reason
 const ProjectCard = ({data}) => (
     <Link to={data.node.frontmatter.link} style={{textDecoration: 'none'}}>
         <div style={ContainerStyle}>
