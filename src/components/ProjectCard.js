@@ -14,10 +14,6 @@ const Container = styled(Link)`
     grid-template-rows:270px auto;
     box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.06);
     text-decoration: none;
-
-    :hover ${TextContainer}{
-        opacity: 1;
-    }
 `
 
 const Text = styled.div`
