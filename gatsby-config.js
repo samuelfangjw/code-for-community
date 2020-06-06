@@ -33,7 +33,7 @@ module.exports = {
         name: 'content'
       }
     },
-    'gatsby-transformer-remark'
+    'gatsby-transformer-remark',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
