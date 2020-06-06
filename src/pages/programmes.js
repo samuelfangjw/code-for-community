@@ -51,7 +51,7 @@ return (
     <h1>Current Programmes</h1>
     
     <div style={{ position: 'relative', marginBottom: `1.45rem` }}>
-        <div>{upcomingContent}</div>
+        <div style={flexStyle}>{upcomingContent}</div>
         <h1>Past Programmes</h1>
         <div style={flexStyle}>{pastContent}</div>
     </div>

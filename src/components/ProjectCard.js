@@ -1,32 +1,69 @@
 import React from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
+import styled from "styled-components"
 
-const ContainerStyle = {
-    position: 'relative',
-    display: 'grid',
-    justifyItems: 'center',
-    alignItems: 'center',
-    gridTemplateColumns: '4fr 7fr',
-    gridTemplateRows:'1fr 2fr',
-    width: '100%',
-    margin: '2rem auto',
-    border: 'solid black',
-    borderWidth: '2px',
-    color: 'black'
-}
+const Container = styled(Link)`
+    position: relative;
+    width: 400px;
+    height: 360px;
+    margin: 20px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows:270px auto;
+    box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.06);
+    text-decoration: none;
 
-const ImageStyle = {
-    width: '100%',
-    alignSelf: 'center',
-    gridColumn:'1',
-    gridRow: '1 / 3',
-    margin: '0.5rem'
-}
+    :hover ${TextContainer}{
+        opacity: 1;
+    }
+`
+
+const Text = styled.div`
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+`
+
+const TextContainer = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #301681;
+
+    :hover {
+        opacity: 1;
+    }
+`
+
+const Image = styled.div`
+    width: 100%;
+    height: 100%;
+    align-self: center;
+    grid-column: 1;
+    grid-row: 1 / 2;
+    margin: 0.5rem;
+    z-index: -1;
+`
+    
 
 const TitleStyle = {
-    gridColumn:'2',
-    gridRow:'1',
+    textDecoration: 'none',
+    color: 'black',
+    gridRow:'2 / 3',
     flush: 'right',
     margin: '0.5rem',
     textAlign: 'center',
@@ -34,31 +71,30 @@ const TitleStyle = {
 
 const TitleContainer = ({children}) => (
     <div style={TitleStyle}>
-        <h1>
+        <h3>
             {children}
-        </h1>
+        </h3>
     </div>
 )
 
-const ContentStyle = {
-    gridColumn: '2',
-    gridRow: '2',
-    textAlign: 'justify',
-    margin: '0.5rem',
-}
+// data.node.frontmatter.link
+// data.node.frontmatter.image.childImageSharp.fluid
+// data.node.frontmatter.name
+// data.node.frontmatter.description
+// data.node.frontmatter.period
 
 const ProjectCard = ({data}) => (
-    <Link to={data.node.frontmatter.link} style={{textDecoration: 'none'}}>
-        <div style={ContainerStyle}>
-            <div style={ImageStyle}>
-                <Img fluid={data.node.frontmatter.image.childImageSharp.fluid}/>
-            </div>
+        <Container to={data.node.frontmatter.link}>
+            <Image>
+                <Img fluid={data.node.frontmatter.image.childImageSharp.fluid} style={{objectFit: 'contain', height: '100%'}}/>
+            </Image>
             <TitleContainer>
                 {data.node.frontmatter.name}
             </TitleContainer>
-            <div style={ContentStyle}>{data.node.frontmatter.description}</div>
-        </div>
-    </Link>
+            <TextContainer class="textcontainer">
+                <Text>{data.node.frontmatter.description}</Text>
+            </TextContainer>
+        </Container>
 )
 
 export default ProjectCard;
