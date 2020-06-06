@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
 import Banner from "../content/about/about_cover.jpg"
 import AboutCard from "../components/AboutCard"
