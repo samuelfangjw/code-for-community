@@ -1,35 +1,33 @@
 import React from "react";
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import styled from "styled-components"
 
-const ContainerStyle = {
-    display: 'block',
-    width: '100%',
-    margin: '2rem auto',
-    color: 'black'
-}
+const Container = styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    width: 90%;
+    margin: 2rem auto;
+    color: black;
+`
 
-const Container = ({children}) => (
-    <div style={ContainerStyle}>
-        {children}
-    </div>
-)
+const ImageContainer = styled.div`
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1.25rem;
+`
 
 const ImageStyle = {
-    display: 'inline-block',
-    width: '15rem',
-    height: '15rem',
+    borderRadius: '50%',
+    objectFit: 'contain'
 }
 
-const ImageContainer = ({children}) => (
-    <div style={ImageStyle}>
-        {children}
-    </div>
-)
-
 const TextStyle = {
-    display: 'inline-block',
+    display: 'flex',
+    maxWidth: '80%',
+    flexDirection: 'column',
     textAlign: 'justify',
+    margin: '0 20px'
 }
 
 const TextContainer = ({name, role, description}) => (
@@ -50,9 +48,7 @@ const AboutCard = ({about}) => {
     return (
     <Container>
         <ImageContainer>
-            <span>
-                <Img fluid={img} imgStyle={{borderRadius: '50%'}}/>
-            </span>
+            <Img fluid={img} imgStyle={ImageStyle}/>
         </ImageContainer>
         <TextContainer name={name} role={role} description={description}></TextContainer>
     </Container>
