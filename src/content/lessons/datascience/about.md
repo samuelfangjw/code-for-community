@@ -1,6 +1,6 @@
 ---
 title: 'About'
-slug: '/programmes/datascience/about'
+slug: '/programmes/datascience/'
 programme: 'datascience'
 order: 0
 ---

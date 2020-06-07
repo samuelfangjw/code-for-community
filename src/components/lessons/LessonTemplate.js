@@ -3,6 +3,16 @@ import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Sidebar from "./Sidebar.js"
+import styled from "styled-components"
+
+const Container = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`
+
+const Content = styled.div`
+  margin: 20px;
+`
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -11,16 +21,16 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
-      <Sidebar programme={frontmatter.programme}/>
-      <div className="blog-post-container">
-        <div className="blog-post">
-          <h1>{frontmatter.title}</h1>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </div>
-      </div>
+      <Container>
+        <Sidebar programme={frontmatter.programme} />
+        <div>
+          <Content>
+            <h1>{frontmatter.title}</h1>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+          </Content>
+          </div>
+      </Container>
+      
     </Layout>
   )
 }

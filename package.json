@@ -22,6 +22,7 @@
     "react-helmet": "^6.0.0",
     "react-responsive-carousel": "^3.2.7",
     "react-rotating-text": "^1.4.1",
+    "semantic-ui-react": "^0.88.2",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 ---
 title: 'About'
-slug: '/programmes/kickstart/about'
+slug: '/programmes/kickstart/'
 programme: 'kickstart'
 order: 0
 ---

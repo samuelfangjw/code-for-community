@@ -4,13 +4,31 @@ import Img from "gatsby-image"
 import { Link, useStaticQuery, graphql } from "gatsby"
 
 const SidebarContainer = styled.div`
-  height: 100vh;
-  width: 200px;
-  background: blue;
+  background: white;
+  position: sticky;
+  top: 0;
+  height: 95vh;
+  border-right: 2px solid #33333320;
+`
+
+const LinkContainer = styled.div`
+  margin: 10px auto;
+  padding: 0 5vw;
+  text-decoration: none;
+`
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+`
+
+const LinkText = styled.p`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
 `
 
 const Sidebar = ({ programme }) => {
-
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -22,6 +40,7 @@ const Sidebar = ({ programme }) => {
             frontmatter {
               title
               programme
+              slug
             }
           }
         }
@@ -30,12 +49,16 @@ const Sidebar = ({ programme }) => {
   `)
 
   const links = data.allMarkdownRemark.edges
-        .filter(edge => edge.node.frontmatter.programme == programme)
-        .map(edge => 
-            <div>
-                {edge.node.frontmatter.title}
-            </div>)
-  return <SidebarContainer>{ links }</SidebarContainer>
+    .filter(edge => edge.node.frontmatter.programme == programme)
+    .map(edge => (
+      <LinkContainer>
+        <StyledLink to={edge.node.frontmatter.slug}>
+          <LinkText>{edge.node.frontmatter.title}</LinkText>
+        </StyledLink>
+      </LinkContainer>
+    ))
+
+  return <SidebarContainer>{links}</SidebarContainer>
 }
 
 export default Sidebar
