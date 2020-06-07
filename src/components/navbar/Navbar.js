@@ -7,7 +7,7 @@ const Navigation = styled.nav`
   height: 10vh;
   display: flex;
   background-color: #fff;
-  position: absolute;
+  position: relative;
   width: 100%;
   justify-content: space-between;
   text-transform: uppercase;
