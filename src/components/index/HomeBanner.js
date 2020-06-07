@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import ReactRotatingText from 'react-rotating-text';
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
 const Banner = styled.div`
@@ -32,7 +32,19 @@ const Image = styled(Img)`
     height: 80vh;
 `
 
-const HomeBanner = ({data}) => (
+const HomeBanner = () => {
+    const data = useStaticQuery(graphql`
+    query {
+        file(name: { eq: "home_cover" }, extension: { eq: "jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1600) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+  `)
+    return (
     <Banner>
         <Image fluid={data.file.childImageSharp.fluid} />
         <TextContainer>
@@ -42,6 +54,6 @@ const HomeBanner = ({data}) => (
             <Text> Counts</Text>
         </TextContainer>
     </Banner>
-)
+)}
 
 export default HomeBanner
