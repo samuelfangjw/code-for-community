@@ -12,7 +12,7 @@ const LogoWrap = styled.div`
   }
 
   @media (max-width: 768px) {
-      order: 2;
+      order: 0;
   }
 `
 const Logo = () => {

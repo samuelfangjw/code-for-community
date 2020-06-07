@@ -20,7 +20,7 @@ const Name = styled.h3``
 
 const Text = styled.p`
   margin: 50px 10vw 10px 10vw;
-  height: 150px;
+  height: 255px;
 `
 
 const Testimonials = () => {
