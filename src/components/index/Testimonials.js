@@ -3,13 +3,20 @@ import Img from "gatsby-image"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { Carousel } from "react-responsive-carousel"
-import styles from "./carousel.css"
+import "./carousel.css"
+
+const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+`
 
 const ImageContainer = styled.div`
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  margin: auto;
+  margin: 20px auto;
+  margin-top: 70px;
   overflow: hidden;
 `
 
@@ -20,8 +27,8 @@ const Image = styled(Img)`
 const Name = styled.h3``
 
 const Text = styled.p`
-  margin: 50px 10vw 10px 10vw;
-  height: 255px;
+  margin: 10px 10vw;
+  padding-bottom: 50px;
 `
 
 const Testimonials = () => {
@@ -51,11 +58,15 @@ const Testimonials = () => {
 
   const content = data.allMarkdownRemark.edges.map(edge => (
     <div>
-      <ImageContainer>
-        <Image fluid={edge.node.frontmatter.cover_img.childImageSharp.fluid} />
-      </ImageContainer>
-      <Name>{edge.node.frontmatter.name}</Name>
-      <Text>{edge.node.frontmatter.quote}</Text>
+      <Container>
+        <ImageContainer>
+          <Image
+            fluid={edge.node.frontmatter.cover_img.childImageSharp.fluid}
+          />
+        </ImageContainer>
+        <Name>{edge.node.frontmatter.name}</Name>
+        <Text>{edge.node.frontmatter.quote}</Text>
+      </Container>
     </div>
   ))
 
