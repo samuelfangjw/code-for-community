@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
+import Sidebar from "./Sidebar.js"
 
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
@@ -10,6 +11,7 @@ export default function Template({
   const { frontmatter, html } = markdownRemark
   return (
     <Layout>
+      <Sidebar programme={frontmatter.programme}/>
       <div className="blog-post-container">
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
@@ -29,6 +31,7 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         title
+        programme
       }
     }
   }
