@@ -58,21 +58,25 @@ const PartnerContainer = ({data}) => (
     </div>
 )
 
+const Header = styled.h1`
+  margin: 5px 50px;
+`
+
 const AboutPage  = ({data}) => (
     <Layout>
     <BannerContainer/>
-    <h1>About Us</h1>
+    <Header>About Us</Header>
     <p> 
     Code for community is a Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </p>
     <h1 style={{textAlign: "center", margin: "20px auto"}}>
         Meet the Team!
     </h1>
-    <h2>Advisors</h2>
+    <Header>Advisors</Header>
     <AboutCard about={data.bimlesh.edges[0].node.frontmatter}/>
-    <h2>Operations</h2>
+    <Header>Operations</Header>
     <AboutCard about={data.adele.edges[0].node.frontmatter}/>
-    <h2>Our Partners</h2>
+    <Header>Our Partners</Header>
     <PartnerContainer data={data.partners}/>
     </Layout>
 )

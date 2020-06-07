@@ -12,15 +12,17 @@ const Container = styled.div`
 `
 
 const ImageContainer = styled.div`
-    width: 10rem;
-    height: 10rem;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
     margin-bottom: 1.25rem;
+    
 `
 
-const ImageStyle = {
-    borderRadius: '50%',
-    objectFit: 'contain'
-}
+const Image = styled(Img)`
+  height: 100%;
+`
 
 const TextStyle = {
     display: 'flex',
@@ -48,7 +50,7 @@ const AboutCard = ({about}) => {
     return (
     <Container>
         <ImageContainer>
-            <Img fluid={img} imgStyle={ImageStyle}/>
+            <Image fluid={img} />
         </ImageContainer>
         <TextContainer name={name} role={role} description={description}></TextContainer>
     </Container>
