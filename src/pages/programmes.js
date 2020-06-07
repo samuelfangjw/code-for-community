@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectCard from "../components/ProjectCard"
+import ProgrammeCard from "../components/ProgrammeCard"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
@@ -42,7 +42,7 @@ const ProjectsPage = ({data}) => {
     )
 
     const upcomingContent = data.upcoming.edges.map(edge =>
-        <ProjectCard data={edge}/>
+        <ProgrammeCard data={edge}/>
     )
 
 return (
