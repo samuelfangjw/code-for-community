@@ -25,11 +25,11 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Navbar/>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}
-        </footer>
+      <Navbar />
+      <main>{children}</main>
+      <footer style={{ borderTop: "2px solid #33333320" }}>
+        © {new Date().getFullYear()}
+      </footer>
     </>
   )
 }

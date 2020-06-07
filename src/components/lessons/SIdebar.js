@@ -12,14 +12,39 @@ const SidebarContainer = styled.div`
 `
 
 const LinkContainer = styled.div`
-  margin: 10px auto;
-  padding: 0 5vw;
+  margin: 10px 5vw;
   text-decoration: none;
 `
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 0px;
+  transition: all 200ms ease-in;
+  position: relative;
+  transition: all 200ms ease-in;
+
+  :after {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: #301681;
+    height: 1px;
+    transition: all 0.4s ease-in;
+  }
+
+  :hover {
+    color: #301681;
+    ::after {
+      width: 100%;
+    }
+  }
 `
 
 const LinkText = styled.p`
