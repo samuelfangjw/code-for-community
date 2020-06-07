@@ -16,6 +16,7 @@ const ImageContainer = styled.div`
 const Image = styled(Img)`
   height: 100%;
 `
+
 const Name = styled.h3``
 
 const Text = styled.p`

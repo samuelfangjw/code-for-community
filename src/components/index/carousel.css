@@ -165,7 +165,9 @@
     margin: 0;
     position: relative;
     text-align: center;
-    background: #fff; }
+    background: #fff;
+    z-index: -1;
+    border: 10px solid black;}
     .carousel .slide img {
       width: 100%;
       vertical-align: top;
