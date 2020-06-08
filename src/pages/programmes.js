@@ -35,7 +35,7 @@ const textStyle = {
 const ProjectsPage = ({data}) => {
     const pastContent = data.past.edges.map(edge => 
         <div style={pastProjectsStyle}>
-            <div style={{gridRow:'1/2', width:'100%', height:'100%',}}>
+            <div style={{gridRow:'1/2', width:'100%', height:'100%'}}>
               <Img fluid={edge.node.frontmatter.image.childImageSharp.fluid} style={imgStyle}/>
             </div>
             <h3 style={textStyle}>{edge.node.frontmatter.name}</h3>    
@@ -50,10 +50,10 @@ return (
     <Layout>
     <SEO title="Projects"/>
     <ProgrammesBanner/>
-    <h1>Current Programmes</h1>
+    <h1 style={{textAlign: "center"}}>Current Programmes</h1>
     <div style={{ position: 'relative', marginBottom: `1.45rem` }}>
         <div style={flexStyle}>{upcomingContent}</div>
-        <h1>Past Programmes</h1>
+        <h1 style={{textAlign: "center"}}>Past Programmes</h1>
         <div style={flexStyle}>{pastContent}</div>
     </div>
     </Layout>

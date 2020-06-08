@@ -38,7 +38,7 @@ const PartnerContainer = ({ data }) => (
   </div>
 )
 
-const Header = styled.h1`
+const Header = styled.h2`
   margin: 5px 50px;
 `
 
