@@ -3,6 +3,13 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
+const BackgroundContainer = styled(BackgroundImage)`
+    height: 75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+`
+
 const DarkLayer = styled.div`
   display: flex;
   height: 100%;
@@ -33,14 +40,8 @@ const ProgrammesBanner = () => {
   `)
 
   return (
-    <BackgroundImage
+    <BackgroundContainer
       fluid={data.file.childImageSharp.fluid}
-      style={{
-        height: "70vh",
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-      }}
     >
       <DarkLayer>
         <TextContainer>
@@ -53,7 +54,7 @@ const ProgrammesBanner = () => {
           </h2>
         </TextContainer>
       </DarkLayer>
-    </BackgroundImage>
+    </BackgroundContainer>
   )
 }
 
@@ -61,7 +62,6 @@ const ProgrammesBannerStyled = styled(ProgrammesBanner)`
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
 `
 
 export default ProgrammesBannerStyled

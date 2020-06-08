@@ -41,7 +41,7 @@ const TextContainer = styled.div`
     background-color: #301681;
 
     :hover {
-        opacity: 1;
+        opacity: 0.9;
     }
 `
 

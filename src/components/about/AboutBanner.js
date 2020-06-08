@@ -2,14 +2,21 @@ import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from "gatsby-background-image"
+
+const BackgroundContainer = styled(BackgroundImage)`
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+`
 
 const DarkLayer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
   color: white;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   align-items: center;
 `
 const TextContainer = styled.div`
@@ -33,23 +40,18 @@ const AboutBanner = () => {
   `)
 
   return (
-    <BackgroundImage fluid={data.file.childImageSharp.fluid} style={{
-      height: '70vh',
-      width: '100%',
-      display: 'flex',
-      alignItems: 'center',
-    }}>
+    <BackgroundContainer fluid={data.file.childImageSharp.fluid}>
       <DarkLayer>
-      <TextContainer>
-        <h1> Welcome! </h1>
-        <h2>
-          CodeForCommunity is an umbrella project of SoC Family, a network of
-          SoC Students, Staff and Alumni who take great pride in helping develop
-          the projects for underserved communities.
-        </h2>
-      </TextContainer>
+        <TextContainer>
+          <h1> Welcome! </h1>
+          <h2>
+            CodeForCommunity is an umbrella project of SoC Family, a network of
+            SoC Students, Staff and Alumni who take great pride in helping
+            develop the projects for underserved communities.
+          </h2>
+        </TextContainer>
       </DarkLayer>
-    </BackgroundImage>
+    </BackgroundContainer>
   )
 }
 
@@ -57,7 +59,6 @@ const AboutBannerStyled = styled(AboutBanner)`
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
 `
 
 export default AboutBannerStyled
