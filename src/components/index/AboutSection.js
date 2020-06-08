@@ -9,7 +9,6 @@ const Container = styled.div`
   @media (max-width: 900px) {
     flex-direction: column;
   }
-
 `
 const TextContainer = styled.div`
   text-align: center;

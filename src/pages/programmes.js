@@ -1,9 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProgrammeCard from "../components/ProgrammeCard"
+import ProgrammeCard from "../components/programmes/ProgrammeCard"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
+import ProgrammesBanner from "../components/programmes/ProgrammesBanner"
 
 const flexStyle = {
   display: "flex",
@@ -48,8 +49,8 @@ const ProjectsPage = ({data}) => {
 return (
     <Layout>
     <SEO title="Projects"/>
+    <ProgrammesBanner/>
     <h1>Current Programmes</h1>
-    
     <div style={{ position: 'relative', marginBottom: `1.45rem` }}>
         <div style={flexStyle}>{upcomingContent}</div>
         <h1>Past Programmes</h1>
