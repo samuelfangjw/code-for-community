@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 const Container = styled.div`
   width: 100%;
-  background-color: #301681;
+  background-color: #7955B4;
   color: white;
   text-align: center;
 `
