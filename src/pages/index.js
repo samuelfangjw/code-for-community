@@ -7,6 +7,7 @@ import HomeBanner from "../components/index/HomeBanner";
 import Testimonials from "../components/index/Testimonials";
 import FeaturedPhotos from "../components/index/FeaturedPhotos";
 import AboutSection from "../components/index/AboutSection";
+import JoinUs from "../components/index/JoinUs";
 
 const IndexPage = () => (
   <Layout>
@@ -15,6 +16,7 @@ const IndexPage = () => (
     <AboutSection/>
     <FeaturedPhotos/>
     <Testimonials/>
+    <JoinUs/>
   </Layout>
 )
 
