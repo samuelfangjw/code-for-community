@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../components/layout"
-import Sidebar from "./Sidebar.js"
+import Sidebar from "./sidebar.js"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
