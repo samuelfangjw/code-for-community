@@ -56,7 +56,7 @@ const LinkText = styled.p`
 const Sidebar = ({ programme }) => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
+      allMdx(
         filter: { fileAbsolutePath: { regex: "/lessons/" } }
         sort: { order: ASC, fields: [frontmatter___order] }
       ) {
@@ -73,7 +73,7 @@ const Sidebar = ({ programme }) => {
     }
   `)
 
-  const links = data.allMarkdownRemark.edges
+  const links = data.allMdx.edges
     .filter(edge => edge.node.frontmatter.programme == programme)
     .map(edge => (
       <LinkContainer>

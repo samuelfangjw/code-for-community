@@ -11,7 +11,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const lessonTemplate = require.resolve(`./src/components/lessons/LessonTemplate.js`)
     const result = await graphql(`
       {
-        allMarkdownRemark(
+        allMdx(
           filter: { fileAbsolutePath: { regex: "/lessons/" } }
           sort: { order: ASC, fields: [frontmatter___order] }
           limit: 1000
@@ -31,7 +31,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       reporter.panicOnBuild(`Error while running GraphQL query.`)
       return
     }
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMdx.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.slug,
         component: lessonTemplate,
