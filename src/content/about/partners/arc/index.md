@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 name: 'Autism Resource Centre'
-profilePicture: 'arc.jpg'
+profilePicture: 'arc.jpeg'
 ---

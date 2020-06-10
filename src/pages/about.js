@@ -7,36 +7,7 @@ import { graphql } from "gatsby"
 
 import AboutCard from "../components/about/AboutCard"
 import AboutBanner from "../components/about/AboutBanner"
-
-const PartnerCardStyles = {
-  width: "100px",
-  margin: "20px",
-}
-
-const PartnerCard = ({ data }) => (
-  <div style={PartnerCardStyles}>
-    <Img
-      fluid={data.node.frontmatter.profilePicture.childImageSharp.fluid}
-      imgStyle={{ borderRadius: "50%" }}
-    />
-    {data.node.frontmatter.name}
-  </div>
-)
-
-const flexStyle = {
-  width: "100%",
-  display: "flex",
-  flexFlow: "row wrap",
-  justifyContent: "space-evenly",
-}
-
-const PartnerContainer = ({ data }) => (
-  <div style={flexStyle}>
-    {data.edges.map(edge => (
-      <PartnerCard data={edge} />
-    ))}
-  </div>
-)
+import Partners from "../components/about/Partners"
 
 const Header = styled.h2`
   margin: 5px 50px;
@@ -61,7 +32,7 @@ const AboutPage = ({ data }) => (
     <Header>Operations</Header>
     <AboutCard about={data.adele.edges[0].node.frontmatter} />
     <Header>Our Partners</Header>
-    <PartnerContainer data={data.partners} />
+    <Partners/>
   </Layout>
 )
 
@@ -103,26 +74,6 @@ export const pageQuery = graphql`
             profilePicture {
               childImageSharp {
                 fluid(maxWidth: 200) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    partners: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/partners/" } }
-      sort: { fields: [frontmatter___order], order: ASC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            name
-            profilePicture {
-              childImageSharp {
-                fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }
