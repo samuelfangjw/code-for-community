@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../../components/layout"
 import Sidebar from "./Sidebar.js"
 import styled from "styled-components"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
   const { mdx } = data // data.mdx holds your post data
-  const { frontmatter, html } = mdx
+  const { frontmatter, body } = mdx
   return (
     <Layout>
       <Container>
@@ -26,7 +27,7 @@ export default function Template({
         <div>
           <Content>
             <h1>{frontmatter.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </Content>
           </div>
       </Container>
@@ -37,7 +38,7 @@ export default function Template({
 export const pageQuery = graphql`
   query($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
-      html
+      body
       frontmatter {
         slug
         title

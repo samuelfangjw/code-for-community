@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Code For Community`,
     description: `Code For Community`,
-    author: ''
+    author: "",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -27,17 +27,45 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/src/content`,
-        name: 'content'
-      }
+        name: "content",
+      },
     },
-    'gatsby-transformer-remark',
+    `gatsby-transformer-remark`,
     {
-      resolve: 'gatsby-plugin-mdx',
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [".mdx", '.md'],
+        extensions: [".mdx", ".md"],
+        defaultLayouts: {
+          posts: require.resolve("./src/components/lessons/LessonTemplate.js"),
+          default: require.resolve("./src/components/DefaultPageLayout.js"),
+        },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-embed-video`,
+            options: {
+              maxWidth: 800,
+              ratio: 1.77,
+              height: 400,
+              related: false,
+              noIframerder: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+        ]
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
