@@ -31,7 +31,7 @@ const Text = styled.p`
 `
 
 const JoinUs = () => (
-  <Container>
+  <Container data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
     <Header>Make a difference today.</Header>
     <Text>Every bit counts</Text>
     <Button to="/programmes">Discover our Programmes</Button>

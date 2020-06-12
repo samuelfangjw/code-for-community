@@ -50,7 +50,7 @@ const RotatingTextContainer = styled.div`
 const Button = styled(Link)`
   display: block;
   padding: 10px 20px;
-  width: 300px;
+  max-width: 300px;
   text-align: center;
   text-decoration: none;
   color: #ffffff;

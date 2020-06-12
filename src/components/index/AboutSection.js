@@ -53,7 +53,7 @@ const AboutSection = () => {
   `)
 
   return (
-    <Container>
+    <Container data-sal="slide-up" data-sal-easing="ease">
       <TextContainer>
         <Text>
           #codeForCommunity is here to create learning opportunities for
