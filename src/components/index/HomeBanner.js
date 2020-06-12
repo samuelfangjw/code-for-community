@@ -3,6 +3,7 @@ import ReactRotatingText from "react-rotating-text"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import { Link } from "gatsby"
 
 const BackgroundContainer = styled(BackgroundImage)`
   height: 75vh;
@@ -46,6 +47,18 @@ const RotatingTextContainer = styled.div`
   display: flex;
 `
 
+const Button = styled(Link)`
+  display: block;
+  padding: 10px 20px;
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #7aa8b7;
+  border-radius: 6px;
+  outline: none;
+`
+
 const HomeBanner = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -69,6 +82,7 @@ const HomeBanner = () => {
             <RotatingText items={["bit", "01100010"]} />
             <Text> Counts</Text>
           </RotatingTextContainer>
+          <Button to="/programmes">Discover Our Programmes</Button>
         </TextContainer>
       </DarkLayer>
     </BackgroundContainer>
