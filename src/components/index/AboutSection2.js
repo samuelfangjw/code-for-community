@@ -35,7 +35,7 @@ const Image = styled(Img)`
   width: 100%;
 `
 
-const AboutSection = () => {
+const AboutSection2 = () => {
   const data = useStaticQuery(graphql`
     query {
       file(name: { eq: "about_us" }, extension: { eq: "jpg" }) {
@@ -65,4 +65,4 @@ const AboutSection = () => {
   )
 }
 
-export default AboutSection
+export default AboutSection2
