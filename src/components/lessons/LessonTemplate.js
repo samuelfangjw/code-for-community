@@ -12,6 +12,7 @@ const Container = styled.div`
 
 const Content = styled.div`
   margin: 20px;
+  flex-grow: 1;
 `
 
 export default function Template({
@@ -23,12 +24,10 @@ export default function Template({
     <Layout>
       <Container>
         <Sidebar programme={frontmatter.programme} />
-        <div>
           <Content>
             <h1>{frontmatter.title}</h1>
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </Content>
-          </div>
       </Container>
       
     </Layout>
