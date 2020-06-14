@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import ProgrammeCard from "../components/programmes/ProgrammeCard"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
 import ProgrammesBanner from "../components/programmes/ProgrammesBanner"
 import styled from "styled-components"
 import PastProgrammesCard from "../components/programmes/PastProgrammesCard"
@@ -32,7 +31,7 @@ const ProjectsPage = ({ data }) => {
   const upcomingContent = data.upcoming.edges.map(edge => (
     <ProgrammeCard data={edge} />
   ))
-  
+
   const pastContent = data.past.edges.map(edge => (
     <PastProgrammesCard data={edge} />
   ))
@@ -95,7 +94,7 @@ export const pageQuery = graphql`
             name
             image {
               childImageSharp {
-                fluid(maxWidth: 200) {
+                fluid(maxWidth: 300) {
                   ...GatsbyImageSharpFluid
                 }
               }

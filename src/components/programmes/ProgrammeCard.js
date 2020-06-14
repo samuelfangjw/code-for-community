@@ -5,24 +5,42 @@ import styled from "styled-components"
 
 const Container = styled(Link)`
   position: relative;
-  width: 400px;
-  height: 360px;
+  display: flex;
   margin: 20px;
   text-decoration: none;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+`
+
+const ImageContainer = styled.div`
+  height: 360px;
+  width: 400px;
+  overflow: hidden;
+  flex-shrink: 0;
 `
 
 const Image = styled(Img)`
-  width: 100%;
   height: 100%;
 `
 
-const TextContainer = styled.p`
-  position: absolute;
-  text-decoration: none;
-  color: black;
-  margin: 0;
-  bottom: 10px;
-  right: 10px;
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+`
+
+const Name = styled.h2`
+
+`
+
+const Period = styled.p`
+`
+
+const Description = styled.p`
+`
+
+const FindOutMore = styled.div`
+  text-align: right;
 `
 
 const ProgrammeCard = ({ data }) => {
@@ -33,9 +51,16 @@ const ProgrammeCard = ({ data }) => {
   const period = data.node.frontmatter.period
 
   return (
-    <Container to={data.node.frontmatter.link}>
-        <Image fluid={image}/>
-        <TextContainer>Find Out More</TextContainer>
+    <Container to={link}>
+        <ImageContainer>
+          <Image fluid={image}/>
+        </ImageContainer>
+        <TextContainer>
+          <Name>{name}</Name>
+          <Period>{period}</Period>
+          <Description>{description}</Description>
+          <FindOutMore>Find Out More</FindOutMore>
+        </TextContainer>
     </Container>
   )
 }
