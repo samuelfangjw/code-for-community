@@ -5,59 +5,57 @@ import ProgrammeCard from "../components/programmes/ProgrammeCard"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import ProgrammesBanner from "../components/programmes/ProgrammesBanner"
+import styled from "styled-components"
+import PastProgrammesCard from "../components/programmes/PastProgrammesCard"
 
-const flexStyle = {
-  display: "flex",
-  flexFlow: "row wrap",
-  justifyContent: "space-evenly",
-}
+const Text = styled.h3`
+  margin: 5vw 10vw;
+  text-align: center;
+`
 
-const pastProjectsStyle = {
-  width: '320px',
-  height: '350px',
-  margin:"20px",
-  display: "grid",
-  justifyItems: 'center',
-  alignItems: 'center',
-  gridTemplateRows:'270px auto',
-  boxShadow: '0px 9px 24px rgba(0, 0, 0, 0.06)',
-}
+const FlexBox = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+`
 
-const imgStyle = {
-  height: '100%',
-  width: '100%',
-}
+const Header = styled.h1`
+  text-align: center;
+`
 
-const textStyle = {
-  gridRow: '2/3',
-}
+const Content = styled.div`
+  position: relative;
+  margin-bottom: 1.45rem;
+`
 
-const ProjectsPage = ({data}) => {
-    const pastContent = data.past.edges.map(edge => 
-        <div style={pastProjectsStyle}>
-            <div style={{gridRow:'1/2', width:'100%', height:'100%'}}>
-              <Img fluid={edge.node.frontmatter.image.childImageSharp.fluid} style={imgStyle}/>
-            </div>
-            <h3 style={textStyle}>{edge.node.frontmatter.name}</h3>    
-        </div>
-    )
+const ProjectsPage = ({ data }) => {
+  const upcomingContent = data.upcoming.edges.map(edge => (
+    <ProgrammeCard data={edge} />
+  ))
+  
+  const pastContent = data.past.edges.map(edge => (
+    <PastProgrammesCard data={edge} />
+  ))
 
-    const upcomingContent = data.upcoming.edges.map(edge =>
-        <ProgrammeCard data={edge}/>
-    )
-
-return (
+  return (
     <Layout>
-    <SEO title="Projects"/>
-    <ProgrammesBanner/>
-    <h1 style={{textAlign: "center"}}>Current Programmes</h1>
-    <div style={{ position: 'relative', marginBottom: `1.45rem` }}>
-        <div style={flexStyle}>{upcomingContent}</div>
-        <h1 style={{textAlign: "center"}}>Past Programmes</h1>
-        <div style={flexStyle}>{pastContent}</div>
-    </div>
+      <SEO title="Projects" />
+      <ProgrammesBanner />
+      <Text>
+        We are passionate about volunteering for underserved communities . We
+        love to create code specific learning opportunities and bring the latest
+        technologies to communities. We love to learn, share and code together.
+        We love to give life to our ideas.
+      </Text>
+      <Header>Current Programmes</Header>
+      <Content>
+        <FlexBox>{upcomingContent}</FlexBox>
+        <Header>Past Programmes</Header>
+        <FlexBox>{pastContent}</FlexBox>
+      </Content>
     </Layout>
-)}
+  )
+}
 
 export default ProjectsPage
 
@@ -66,7 +64,7 @@ export const pageQuery = graphql`
   query programmesQuery {
     upcoming: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: {regex: "/programmes/upcoming_programmes/"}
+        fileAbsolutePath: { regex: "/programmes/upcoming_programmes/" }
       }
     ) {
       edges {
@@ -89,9 +87,7 @@ export const pageQuery = graphql`
     }
 
     past: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: {regex: "/programmes/past_programmes/"}
-      }
+      filter: { fileAbsolutePath: { regex: "/programmes/past_programmes/" } }
     ) {
       edges {
         node {
@@ -109,4 +105,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

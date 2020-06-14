@@ -25,7 +25,7 @@ const TextContainer = styled.p`
   right: 10px;
 `
 
-const ProjectCard = ({ data }) => {
+const ProgrammeCard = ({ data }) => {
   const link = data.node.frontmatter.link
   const image = data.node.frontmatter.image.childImageSharp.fluid
   const name = data.node.frontmatter.name
@@ -40,7 +40,7 @@ const ProjectCard = ({ data }) => {
   )
 }
 
-export default ProjectCard
+export default ProgrammeCard
 
 // const Text = styled.div`
 //     color: white;

@@ -46,12 +46,6 @@ const ProgrammesBanner = () => {
       <DarkLayer>
         <TextContainer>
           <h1>Impact the community</h1>
-          <h2>
-            We are passionate about volunteering for underserved communities .
-            We love to create code specific learning opportunities and bring the
-            latest technologies to communities. We love to learn, share and code
-            together. We love to give life to our ideas.
-          </h2>
         </TextContainer>
       </DarkLayer>
     </BackgroundContainer>
