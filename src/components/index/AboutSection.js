@@ -51,12 +51,10 @@ const AboutSection = () => {
   return (
     <Container data-sal="slide-up" data-sal-easing="ease">
       <TextContainer>
+        <h1 style={{marginTop:"20px"}}> Our Mission</h1>
         <Text>
-          #codeForCommunity is here to create learning opportunities for
-          underserved communities. Whether it’s helping them to learn a
-          programming language, making them aware of about about online safety
-          or helping them develop skills for a career, #codeForCommunity is here
-          to serve.
+          At Code For Community, we strive to create meaningful learning opportunities for children in
+          underserved communities.
         </Text>
       </TextContainer>
 

@@ -15,6 +15,10 @@ const TextContainer = styled.div`
   position: relative;
   color: black;
   flex-basis: 100%;
+
+  @media (max-width: 900px) {
+    order: -1;
+  }
 `
 
 const Text = styled.h3`
@@ -38,7 +42,7 @@ const Image = styled(Img)`
 const AboutSection2 = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "about_us" }, extension: { eq: "jpg" }) {
+      file(name: { eq: "20171021_134916" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1000) {
             ...GatsbyImageSharpFluid
@@ -50,17 +54,15 @@ const AboutSection2 = () => {
 
   return (
     <Container data-sal="slide-up" data-sal-easing="ease">
+      <Image fluid={data.file.childImageSharp.fluid} />
       <TextContainer>
+        <h1 style={{marginTop:"20px"}}>Our Methods</h1>
         <Text>
-          #codeForCommunity is here to create learning opportunities for
-          underserved communities. Whether it’s helping them to learn a
-          programming language, making them aware of about about online safety
-          or helping them develop skills for a career, #codeForCommunity is here
-          to serve.
+          With the help of our volunteers, we design classes to teach
+          compututational thinking skills, robotics and visual literacy to
+          children in a meaningful and engaging way.
         </Text>
       </TextContainer>
-
-      <Image fluid={data.file.childImageSharp.fluid} />
     </Container>
   )
 }

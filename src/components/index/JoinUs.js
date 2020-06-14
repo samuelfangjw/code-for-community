@@ -33,8 +33,11 @@ const Text = styled.p`
 const JoinUs = () => (
   <Container data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
     <Header>Make a difference today.</Header>
-    <Text>Every bit counts</Text>
-    <Button to="/programmes">Discover our Programmes</Button>
+    <Text>
+      Love working with children? Keen to make a difference? Discover our
+      programmes today!
+    </Text>
+    <Button to="/programmes">Our Programmes</Button>
   </Container>
 )
 
