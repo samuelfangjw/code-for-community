@@ -72,7 +72,7 @@ const Testimonials = () => {
 
   return (
     <div data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
-    <h1 style={{textAlign:"center"}}>What Our Volunteers have to Say</h1>
+    <h1 style={{marginTop: "20px",textAlign:"center"}}>What Our Volunteers have to Say</h1>
     <Carousel
       autoPlay
       infiniteLoop

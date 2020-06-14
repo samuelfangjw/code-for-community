@@ -43,12 +43,7 @@ const AboutBanner = () => {
     <BackgroundContainer fluid={data.file.childImageSharp.fluid}>
       <DarkLayer>
         <TextContainer>
-          <h1> Welcome! </h1>
-          <h2>
-            CodeForCommunity is an umbrella project of SoC Family, a network of
-            SoC Students, Staff and Alumni who take great pride in helping
-            develop the projects for underserved communities.
-          </h2>
+          <h1> Our Story </h1>
         </TextContainer>
       </DarkLayer>
     </BackgroundContainer>

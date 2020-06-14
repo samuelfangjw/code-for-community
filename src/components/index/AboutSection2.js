@@ -58,7 +58,7 @@ const AboutSection2 = () => {
       <TextContainer>
         <h1 style={{marginTop:"20px"}}>Our Methods</h1>
         <Text>
-          With the help of our volunteers, we design classes to teach
+          With the help of our volunteers, we design programmes to teach
           compututational thinking skills, robotics and visual literacy to
           children in a meaningful and engaging way.
         </Text>

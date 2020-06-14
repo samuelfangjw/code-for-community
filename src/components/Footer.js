@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
 const Footer = () => {
   return (
     <FooterContainer>
-      © {new Date().getFullYear()}
+      © {new Date().getFullYear()} Code For Community
     </FooterContainer>
   )
 }
