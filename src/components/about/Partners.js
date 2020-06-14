@@ -3,16 +3,17 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-const PartnerCard = styled.div`
-  width: 150px;
-  margin: 20px;
-`
-
 const Container = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+`
+
+const PartnerCard = styled.div`
+  width: 150px;
+  margin: 20px;
+  text-decoration: none;
 `
 
 const ImageContainer = styled.div`
@@ -30,9 +31,11 @@ const Name = styled.p`
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
+  text-decoration: none;
 `
 
 const Partners = () => {
+  //static graphql query
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
@@ -43,6 +46,7 @@ const Partners = () => {
           node {
             frontmatter {
               name
+              link
               profilePicture {
                 childImageSharp {
                   fluid(maxWidth: 200) {
@@ -60,14 +64,18 @@ const Partners = () => {
   return (
     <Container>
       {data.allMarkdownRemark.edges.map(edge => (
-        <PartnerCard>
-          <ImageContainer>
-            <Image
-              fluid={edge.node.frontmatter.profilePicture.childImageSharp.fluid}
-            />
-          </ImageContainer>
-          <Name>{edge.node.frontmatter.name}</Name>
-        </PartnerCard>
+        <a href={edge.node.frontmatter.link}>
+          <PartnerCard>
+            <ImageContainer>
+              <Image
+                fluid={
+                  edge.node.frontmatter.profilePicture.childImageSharp.fluid
+                }
+              />
+            </ImageContainer>
+            <Name>{edge.node.frontmatter.name}</Name>
+          </PartnerCard>
+        </a>
       ))}
     </Container>
   )
