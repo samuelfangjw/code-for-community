@@ -43,7 +43,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             name
-            role
+            title
             description
             profilePicture {
               childImageSharp {
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             name
-            role
+            title
             description
             profilePicture {
               childImageSharp {
