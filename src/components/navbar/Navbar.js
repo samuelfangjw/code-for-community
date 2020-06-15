@@ -6,12 +6,13 @@ import Logo from "./Logo"
 const Navigation = styled.nav`
   height: 10vh;
   display: flex;
-  background-color: #fff;
-  position: relative;
+  ${'' /* background-color: #fff; */}
+  ${'' /* position: relative; */}
+  position: absolute;
   width: 100%;
   justify-content: space-between;
   text-transform: uppercase;
-  border-bottom: 2px solid #33333320;
+  ${'' /* border-bottom: 2px solid #33333320; */}
   margin: 0 auto;
   padding: 0 5vw;
   z-index: 2;

@@ -4,7 +4,8 @@ import { Link } from "gatsby"
 
 const NavItem = styled(Link)`
   text-decoration: none;
-  color: black;
+  ${'' /* color: black; */}
+  color: white;
   display: inline-block;
   white-space: nowrap;
   margin: 0 1vw;
