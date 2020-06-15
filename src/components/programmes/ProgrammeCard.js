@@ -16,6 +16,10 @@ const Container = styled(Link)`
   &:hover {
     transform:scale(1.05);
   }
+
+  &:hover ${FindOutMore}:before {
+    width: 100%;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -49,6 +53,15 @@ const FindOutMore = styled.div`
   flex-direction: column-reverse;
   text-align: right;
   margin:10px;
+
+  :before {
+    width: 0%;
+    content: ".";
+    color: transparent;
+    background: #301681;
+    height: 3px;
+    transition: all 0.4s ease-in;
+  }
 `
 
 const ProgrammeCard = ({ data }) => {
