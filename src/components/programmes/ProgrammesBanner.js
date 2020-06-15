@@ -15,7 +15,7 @@ const DarkLayer = styled.div`
   height: 100%;
   width: 100%;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   align-items: center;
 `
 const TextContainer = styled.div`

@@ -17,7 +17,7 @@ const DarkLayer = styled.div`
   height: 100%;
   width: 100%;
   color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
   align-items: center;
 `
 
@@ -54,7 +54,8 @@ const Button = styled(Link)`
   text-align: center;
   text-decoration: none;
   color: #ffffff;
-  background-color: #7aa8b7;
+  border: 2px solid white;
+  font-weight: bold;
   border-radius: 6px;
   outline: none;
 `
