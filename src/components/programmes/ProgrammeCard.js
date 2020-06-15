@@ -3,24 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-const Container = styled(Link)`
-  position: relative;
-  display: flex;
-  margin: 20px;
-  text-decoration: none;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  color: black;
-  transition: all 0.3s ease-in-out;
 
-  &:hover {
-    transform:scale(1.05);
-  }
-
-  &:hover ${FindOutMore}:before {
-    width: 100%;
-  }
-`
 
 const ImageContainer = styled.div`
   height: 360px;
@@ -61,6 +44,26 @@ const FindOutMore = styled.div`
     background: #301681;
     height: 3px;
     transition: all 0.4s ease-in;
+  }
+`
+
+//container has to be declared after FindOutMore 
+const Container = styled(Link)`
+  position: relative;
+  display: flex;
+  margin: 20px;
+  text-decoration: none;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  color: black;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform:scale(1.05);
+  }
+
+  &:hover ${FindOutMore}:before {
+    width: 100%;
   }
 `
 
