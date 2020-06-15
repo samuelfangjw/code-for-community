@@ -11,6 +11,11 @@ const Container = styled(Link)`
   flex-flow: row wrap;
   justify-content: space-evenly;
   color: black;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform:scale(1.05);
+  }
 `
 
 const ImageContainer = styled.div`
