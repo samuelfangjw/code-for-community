@@ -10,6 +10,7 @@ const Container = styled(Link)`
   text-decoration: none;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  color: black;
 `
 
 const ImageContainer = styled.div`
@@ -37,7 +38,12 @@ const Period = styled.p``
 const Description = styled.p``
 
 const FindOutMore = styled.div`
+  flex-grow: 1;
+  align-self: flex-end;
+  display:flex;
+  flex-direction: column-reverse;
   text-align: right;
+  margin:10px;
 `
 
 const ProgrammeCard = ({ data }) => {

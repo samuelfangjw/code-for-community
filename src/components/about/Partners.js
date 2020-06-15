@@ -13,7 +13,7 @@ const Container = styled.div`
 const PartnerCard = styled.div`
   width: 150px;
   margin: 20px;
-  text-decoration: none;
+  color: black;
 `
 
 const ImageContainer = styled.div`
@@ -31,7 +31,6 @@ const Name = styled.p`
   margin-top: 10px;
   text-align: center;
   font-weight: bold;
-  text-decoration: none;
 `
 
 const Partners = () => {
@@ -64,7 +63,7 @@ const Partners = () => {
   return (
     <Container>
       {data.allMarkdownRemark.edges.map(edge => (
-        <a href={edge.node.frontmatter.link}>
+        <a href={edge.node.frontmatter.link} style={{textDecoration:'none'}}>
           <PartnerCard>
             <ImageContainer>
               <Image
