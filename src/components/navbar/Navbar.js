@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
@@ -6,21 +6,28 @@ import Logo from "./Logo"
 const Navigation = styled.nav`
   height: 10vh;
   display: flex;
-  ${'' /* background-color: #fff; */}
-  ${'' /* position: relative; */}
+  ${"" /* background-color: #fff; */}
+  ${"" /* position: relative; */}
   position: absolute;
   width: 100%;
   justify-content: space-between;
   text-transform: uppercase;
-  ${'' /* border-bottom: 2px solid #33333320; */}
+  ${"" /* border-bottom: 2px solid #33333320; */}
   margin: 0 auto;
   padding: 0 5vw;
   z-index: 2;
   align-self: center;
 
+  &[data-active="true"] {
+    @media (max-width: 768px) {
+      background-color: #fff;
+      position: sticky;
+    }
+  }
+
   @media (max-width: 768px) {
     padding-left: 0;
-    position: sticky;
+    ${"" /* position: sticky; */}
     height: 8vh;
     top: 0;
     left: 0;
@@ -45,6 +52,7 @@ const Navbox = styled.div`
   height: 100%;
   justify-content: flex-end;
   align-items: center;
+  z-index: -1;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -53,8 +61,8 @@ const Navbox = styled.div`
     justify-content: flex-start;
     padding-top: 10vh;
     background-color: #fff;
-    transition: all 0.3s ease-in;
-    top: 8vh;
+    ${'' /* transition: all 0.3s ease-in; */}
+    ${'' /* top: 8vh; */}
     left: ${props => (props.open ? "-100%" : "0")};
   }
 `
@@ -63,7 +71,7 @@ const Hamburger = styled.div`
   background-color: #111;
   width: 25px;
   height: 3px;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
   align-self: center;
   position: relative;
   transform: ${props => (props.open ? "rotate(-45deg)" : "inherit")};
@@ -92,9 +100,27 @@ const Hamburger = styled.div`
 `
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  // change state on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10
+      if (isScrolled !== scrolled) {
+        setScrolled(!scrolled)
+      }
+    }
+
+    document.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => {
+      // clean up the event handler when the component unmounts
+      document.removeEventListener("scroll", handleScroll)
+    }
+  }, [scrolled])
 
   return (
-    <Navigation>
+    <Navigation data-active={scrolled}>
       <Logo />
       <Toggle
         navbarOpen={navbarOpen}
@@ -108,7 +134,7 @@ const Navbar = () => {
         </Navbox>
       ) : (
         <Navbox open>
-          <NavbarLinks />
+          <NavbarLinks open/>
         </Navbox>
       )}
     </Navigation>
