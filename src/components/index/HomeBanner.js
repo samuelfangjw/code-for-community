@@ -65,8 +65,8 @@ const HomeBanner = () => {
     query {
       file(name: { eq: "home_cover" }, extension: { eq: "jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 1600) {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
+          fluid(maxWidth: 1600) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
