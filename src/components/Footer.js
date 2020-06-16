@@ -10,7 +10,12 @@ const FooterContainer = styled.footer`
 
 const FlexBox = styled.div`
   display: flex;
-  justify-content: space-evenly;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+    flex-flow: column-reverse wrap;
 `
 
 const Container = styled.div`
