@@ -20,10 +20,6 @@ const ImageContainer = styled.div`
   overflow: hidden;
 `
 
-const Image = styled(Img)`
-  height: 100%;
-`
-
 const Name = styled.h3``
 
 const Text = styled.p`
@@ -44,8 +40,8 @@ const Testimonials = () => {
               quote
               cover_img {
                 childImageSharp {
-                  fluid(maxWidth: 200) {
-                    ...GatsbyImageSharpFluid
+                  fixed(height: 200, width: 200) {
+                    ...GatsbyImageSharpFixed
                   }
                 }
               }
@@ -60,8 +56,8 @@ const Testimonials = () => {
     <div>
       <Container>
         <ImageContainer>
-          <Image
-            fluid={edge.node.frontmatter.cover_img.childImageSharp.fluid}
+          <Img
+            fixed={edge.node.frontmatter.cover_img.childImageSharp.fixed}
           />
         </ImageContainer>
         <Name>{edge.node.frontmatter.name}</Name>
