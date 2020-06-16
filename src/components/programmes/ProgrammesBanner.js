@@ -31,7 +31,7 @@ const ProgrammesBanner = () => {
     query {
       file(name: { eq: "volunteer_cover" }, extension: { eq: "jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1600) {
+          fluid(quality: 80, maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
