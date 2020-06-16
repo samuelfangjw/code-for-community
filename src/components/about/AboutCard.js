@@ -9,24 +9,21 @@ const Container = styled.div`
   width: 90%;
   margin: 2rem auto;
   color: black;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `
 
 const ImageContainer = styled.div`
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   overflow: hidden;
   border-radius: 50%;
-  margin-bottom: 1.25rem;
-`
-
-const Image = styled(Img)`
-  height: 100%;
+  margin: 0 20px;
+  margin-bottom: 25px;
 `
 
 const TextContainer = styled.div`
   display: flex;
-  max-width: 80%;
+  max-width: 75%;
   flex-direction: column;
   text-align: justify;
   margin: 0 20px;
@@ -34,22 +31,26 @@ const TextContainer = styled.div`
 
 const Name = styled.p`
   margin: 0;
+  font-weight: bold;
+  font-size: larger;
 `
 
-const Title = styled.p``
+const Title = styled.p`
+  font-style: italic;
+`
 
 const Description = styled.p``
 
 const AboutCard = ({ about }) => {
   const name = about.name
-  const img = about.profilePicture.childImageSharp.fluid
+  const img = about.profilePicture.childImageSharp.fixed
   const title = about.title
   const description = about.description
 
   return (
     <Container>
       <ImageContainer>
-        <Image fluid={img} />
+        <Img fixed={img} />
       </ImageContainer>
       <TextContainer>
         <Name>{name}</Name>

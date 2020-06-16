@@ -47,8 +47,8 @@ export const pageQuery = graphql`
             description
             profilePicture {
               childImageSharp {
-                fluid(maxWidth: 200) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
@@ -68,8 +68,8 @@ export const pageQuery = graphql`
             description
             profilePicture {
               childImageSharp {
-                fluid(maxWidth: 200) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
