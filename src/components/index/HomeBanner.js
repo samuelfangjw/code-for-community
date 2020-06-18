@@ -42,7 +42,13 @@ const TextContainer = styled.div`
   color: white;
   margin: auto;
   align-items: center;
-  transform: translateY(-15%);
+  transform: translateY(-20%);
+  max-width: 70%;
+
+  @media (max-width: 768px) {
+    transform: translateY(-10%);
+    max-width: 100%;
+  }
 `
 
 const RotatingTextContainer = styled.div`
