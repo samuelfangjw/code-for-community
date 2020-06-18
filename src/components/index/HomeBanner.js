@@ -22,7 +22,7 @@ const DarkLayer = styled.div`
 
 const HeaderText = styled.h1`
   font-size: xxx-large;
-  margin: 20px 0px;
+  margin: 0;
 `
 
 const RotatingText = styled(ReactRotatingText)`
@@ -43,11 +43,10 @@ const TextContainer = styled.div`
   margin: auto;
   align-items: center;
   transform: translateY(-20%);
-  max-width: 70%;
+  max-width: 95%:
 
   @media (max-width: 768px) {
     transform: translateY(-10%);
-    max-width: 100%;
   }
 `
 
@@ -56,6 +55,7 @@ const RotatingTextContainer = styled.div`
 `
 
 const Button = styled(Link)`
+  margin-top: 20px;
   display: block;
   padding: 10px 20px;
   max-width: 300px;
@@ -130,7 +130,8 @@ const HomeBanner = () => {
     <BackgroundContainer fluid={data.file.childImageSharp.fluid} >
       <DarkLayer>
         <TextContainer>
-          <HeaderText>Enriching the Community through Computing.</HeaderText>
+          <HeaderText>Enriching the community</HeaderText>
+          <HeaderText>one child at a time</HeaderText>
           {/* <RotatingTextContainer>
             <Text>Every </Text>
             <RotatingText items={["bit", "01100010"]} />
@@ -139,7 +140,7 @@ const HomeBanner = () => {
           <Button to="/programmes">Discover Our Programmes</Button>
         </TextContainer>
           <Arrow onClick={() => scrollTo('#about')} />
-          <ScrollText onClick={() => scrollTo('#about')}>Scroll down for more</ScrollText>
+          <ScrollText onClick={() => scrollTo('#about')}>Scroll down to find out more</ScrollText>
       </DarkLayer>
     </BackgroundContainer>
   )
