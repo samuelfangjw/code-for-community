@@ -57,6 +57,7 @@ const Container = styled(Link)`
   justify-content: space-evenly;
   color: black;
   transition: all 0.3s ease-in-out;
+  box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.06);
 
   &:hover {
     transform:scale(1.05);
