@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import { Link } from "gatsby"
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const BackgroundContainer = styled(BackgroundImage)`
   height: 100vh;
@@ -67,8 +68,6 @@ const Button = styled(Link)`
   }
 `
 
-const ScrollContainer = styled.div``
-
 const Arrow = styled.div`
   position: absolute;
   bottom: 10%;
@@ -99,7 +98,7 @@ const Arrow = styled.div`
   }
 `
 
-const ScrollText = styled.p`
+const ScrollText = styled.div`
   position: absolute;
   bottom: 4%;
   margin: 0;
@@ -133,10 +132,8 @@ const HomeBanner = () => {
           </RotatingTextContainer> */}
           <Button to="/programmes">Discover Our Programmes</Button>
         </TextContainer>
-        <ScrollContainer>
-          <Arrow />
-          <ScrollText>Scroll down for more</ScrollText>
-        </ScrollContainer>
+          <Arrow onClick={() => scrollTo('#about')} />
+          <ScrollText onClick={() => scrollTo('#about')}>Scroll down for more</ScrollText>
       </DarkLayer>
     </BackgroundContainer>
   )
