@@ -16,7 +16,7 @@ const ImageContainer = styled.div`
   height: 200px;
   border-radius: 50%;
   margin: 20px auto;
-  margin-top: 70px;
+  margin-top: 30px;
   overflow: hidden;
 `
 
@@ -25,6 +25,7 @@ const Name = styled.h3``
 const Text = styled.p`
   margin: 10px 10vw;
   padding-bottom: 50px;
+  font-size: 1.2rem;
 `
 
 const Testimonials = () => {
@@ -67,8 +68,7 @@ const Testimonials = () => {
   ))
 
   return (
-    <div data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
-    <h1 style={{marginTop: "20px",textAlign:"center"}}>What Our Volunteers have to Say</h1>
+    <div>
     <Carousel
       autoPlay
       infiniteLoop

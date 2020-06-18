@@ -18,16 +18,7 @@ const TextContainer = styled.div`
 `
 
 const Text = styled.h3`
-  position: absolute;
-  top: 40%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
   margin: 40px;
-
-  @media (max-width: 900px) {
-    position: relative;
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
   }
 `
 
@@ -49,15 +40,14 @@ const AboutSection = () => {
   `)
 
   return (
-    <Container data-sal="slide-up" data-sal-easing="ease">
-      <TextContainer>
+    <Container Container data-sal="slide-left" data-sal-easing="ease">
+      <TextContainer data-sal="zoom-in" data-sal-easing="ease" data-sal-delay="300">
         <h1 style={{marginTop:"20px"}}> Our Mission</h1>
         <Text>
           At Code For Community, we strive to create meaningful learning opportunities for children in
           underserved communities.
         </Text>
       </TextContainer>
-
       <Image fluid={data.file.childImageSharp.fluid} />
     </Container>
   )

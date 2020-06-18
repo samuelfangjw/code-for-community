@@ -22,17 +22,7 @@ const TextContainer = styled.div`
 `
 
 const Text = styled.h3`
-  position: absolute;
-  top: 40%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
   margin: 40px;
-
-  @media (max-width: 900px) {
-    position: relative;
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-  }
 `
 
 const Image = styled(Img)`
@@ -53,9 +43,9 @@ const AboutSection2 = () => {
   `)
 
   return (
-    <Container data-sal="slide-up" data-sal-easing="ease">
-      <Image fluid={data.file.childImageSharp.fluid} />
-      <TextContainer>
+    <Container data-sal="slide-right" data-sal-easing="ease">
+      <Image fluid={data.file.childImageSharp.fluid}/>
+      <TextContainer data-sal="zoom-in" data-sal-easing="ease" data-sal-delay="300">
         <h1 style={{marginTop:"20px"}}>Our Methods</h1>
         <Text>
           With the help of our volunteers, we design programmes to teach
