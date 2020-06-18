@@ -32,7 +32,7 @@ const ProgrammesBanner = () => {
       file(name: { eq: "volunteer_cover" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(quality: 80, maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

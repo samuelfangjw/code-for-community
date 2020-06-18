@@ -8,8 +8,8 @@ import styled from "styled-components"
 import PastProgrammesCard from "../components/programmes/PastProgrammesCard"
 
 const Text = styled.h3`
-  margin: 5vw 10vw;
-  text-align: center;
+  margin: 10px 10vw;
+  text-align: justify;
 `
 
 const FlexBox = styled.div`
@@ -20,6 +20,7 @@ const FlexBox = styled.div`
 
 const Header = styled.h1`
   text-align: center;
+  margin-top: 20px;
 `
 
 const Content = styled.div`
@@ -38,13 +39,17 @@ const ProjectsPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO title="Programmes" />
       <ProgrammesBanner />
+      <Header>Our programmes</Header>
       <Text>
-        We are passionate about volunteering for underserved communities . We
-        love to create code specific learning opportunities and bring the latest
-        technologies to communities. We love to learn, share and code together.
-        We love to give life to our ideas.
+        At code for community, we belive in impacting our community one child at a time.
+      </Text>
+      <Text>
+        We design and conduct computing related lessons for children ranging from basic programming skills, to robotics, to visual literacy courses. We tailor the lessons to suit the ability level of our students and aim for a 1-1 volunteer to student ratio so each child gets individual attention.
+      </Text>
+      <Text>
+        Explore our current programmes below!
       </Text>
       <Header>Current Programmes</Header>
       <Content>

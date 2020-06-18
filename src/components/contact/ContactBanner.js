@@ -32,7 +32,7 @@ const ContactBanner = () => {
       file(name: { eq: "about_cover" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(quality: 80, maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

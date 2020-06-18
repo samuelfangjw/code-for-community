@@ -118,8 +118,8 @@ const HomeBanner = () => {
     query {
       file(name: { eq: "cap_image" }, extension: { eq: "jpg" }) {
         childImageSharp {
-          fluid(quality: 80, maxWidth: 1600) {
-            ...GatsbyImageSharpFluid
+          fluid(quality: 70, maxWidth: 1600) {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
@@ -127,7 +127,7 @@ const HomeBanner = () => {
   `)
 
   return (
-    <BackgroundContainer fluid={data.file.childImageSharp.fluid}>
+    <BackgroundContainer fluid={data.file.childImageSharp.fluid} >
       <DarkLayer>
         <TextContainer>
           <HeaderText>Enriching the Community through Computing.</HeaderText>
