@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 
 const NavItem = styled(Link)`
   text-decoration: none;
-  ${'' /* color: black; */}
   color: white;
   display: inline-block;
   white-space: nowrap;
@@ -20,13 +19,13 @@ const NavItem = styled(Link)`
     width: 0%;
     content: ".";
     color: transparent;
-    background: #301681;
+    background: darkorange;
     height: 1px;
     transition: all 0.4s ease-in;
   }
 
   :hover {
-    color: #301681;
+    color: darkorange;
     ::after {
       width: 100%;
     }

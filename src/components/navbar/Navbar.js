@@ -17,9 +17,11 @@ const Navigation = styled.nav`
   padding: 0 5vw;
   z-index: 2;
   align-self: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
 
   &[data-active="true"] {
     @media (max-width: 768px) {
+      background: none;
       background-color: #fff;
       position: sticky;
     }

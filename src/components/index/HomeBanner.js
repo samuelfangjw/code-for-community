@@ -6,22 +6,21 @@ import BackgroundImage from "gatsby-background-image"
 import { Link } from "gatsby"
 
 const BackgroundContainer = styled(BackgroundImage)`
-  height: 75vh;
+  height: 100vh;
   width: 100%;
-  display: flex;
-  align-items: center;
 `
 
 const DarkLayer = styled.div`
+  position: relative;
   display: flex;
   height: 100%;
   width: 100%;
   color: white;
-  background-color: rgba(0, 0, 0, 0.2);
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.25);
 `
 
 const HeaderText = styled.h1`
+  font-size: xxx-large;
   margin: 20px 0px;
 `
 
@@ -37,10 +36,12 @@ const Text = styled.p`
 
 const TextContainer = styled.div`
   display: flex;
+  text-align: center;
   flex-direction: column;
   color: white;
-  margin: 0 10vh;
-  align-itens: center;
+  margin: auto;
+  align-items: center;
+  transform: translateY(-15%);
 `
 
 const RotatingTextContainer = styled.div`
@@ -58,12 +59,59 @@ const Button = styled(Link)`
   font-weight: bold;
   border-radius: 6px;
   outline: none;
+
+  :hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.2),
+      0 10px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+`
+
+const ScrollContainer = styled.div``
+
+const Arrow = styled.div`
+  position: absolute;
+  bottom: 10%;
+  border: solid white;
+  border-width: 0 0 2px 2px;
+  left: 50%;
+  margin-left: -10px;
+  display: inline-block;
+  padding: 10px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -webkit-animation: moveArrow 3s infinite;
+
+  @keyframes moveArrow {
+    0% {
+      transform: rotate(-45deg) translate(0, 0);
+    }
+    20% {
+      transform: rotate(-45deg) translate(-10px, 10px);
+    }
+    40% {
+      transform: rotate(-45deg) translate(0, 0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    bottom: 11%;
+  }
+`
+
+const ScrollText = styled.p`
+  position: absolute;
+  bottom: 4%;
+  margin: 0;
+  left: 25%;
+  width: 50%;
+  text-align: center;
 `
 
 const HomeBanner = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "home_cover" }, extension: { eq: "jpg" }) {
+      file(name: { eq: "cap_image" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(quality: 80, maxWidth: 1600) {
             ...GatsbyImageSharpFluid
@@ -78,13 +126,17 @@ const HomeBanner = () => {
       <DarkLayer>
         <TextContainer>
           <HeaderText>Enriching the Community through Computing.</HeaderText>
-          <RotatingTextContainer>
+          {/* <RotatingTextContainer>
             <Text>Every </Text>
             <RotatingText items={["bit", "01100010"]} />
             <Text> Counts</Text>
-          </RotatingTextContainer>
+          </RotatingTextContainer> */}
           <Button to="/programmes">Discover Our Programmes</Button>
         </TextContainer>
+        <ScrollContainer>
+          <Arrow />
+          <ScrollText>Scroll down for more</ScrollText>
+        </ScrollContainer>
       </DarkLayer>
     </BackgroundContainer>
   )

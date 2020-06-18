@@ -8,7 +8,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Contact Us" />
     <ContactBanner/>
-    <h1>Contact Us!</h1>
+    <h1 style={{textAlign: 'center', margin:'20px'}}>This page is under development :)</h1>
   </Layout>
 )
 
