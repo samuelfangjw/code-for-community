@@ -22,7 +22,7 @@ const Navigation = styled.nav`
   &[data-active="true"] {
     @media (max-width: 768px) {
       background: none;
-      background-color: #fff;
+      background-color: #292826;
       position: sticky;
     }
   }
@@ -62,15 +62,15 @@ const Navbox = styled.div`
     width: 100%;
     justify-content: flex-start;
     padding-top: 10vh;
-    background-color: #fff;
+    background-color: #292826;
     ${'' /* transition: all 0.3s ease-in; */}
-    ${'' /* top: 8vh; */}
+    top: 0;
     left: ${props => (props.open ? "-100%" : "0")};
   }
 `
 
 const Hamburger = styled.div`
-  background-color: #111;
+  background-color: #fff;
   width: 25px;
   height: 3px;
   transition: all 0.3s linear;
@@ -82,7 +82,7 @@ const Hamburger = styled.div`
   ::after {
     width: 25px;
     height: 3px;
-    background-color: #111;
+    background-color: #fff;
     content: "";
     position: absolute;
     transition: all 0.3s linear;
