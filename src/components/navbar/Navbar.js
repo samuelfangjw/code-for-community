@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
+import Button from '@material-ui/core/Button';
 
 const Navigation = styled.nav`
   height: 10vh;
