@@ -43,7 +43,8 @@ const TextContainer = styled.div`
   margin: auto;
   align-items: center;
   transform: translateY(-20%);
-  max-width: 95%:
+  max-width: 95%;
+  text-shadow: 0px 0px 1px #111111;
 
   @media (max-width: 768px) {
     transform: translateY(-10%);
@@ -130,8 +131,8 @@ const HomeBanner = () => {
     <BackgroundContainer fluid={data.file.childImageSharp.fluid} >
       <DarkLayer>
         <TextContainer>
-          <HeaderText>Enriching the community</HeaderText>
-          <HeaderText>one child at a time</HeaderText>
+          <HeaderText>Enriching the community one</HeaderText>
+          <HeaderText>child at a time</HeaderText>
           {/* <RotatingTextContainer>
             <Text>Every </Text>
             <RotatingText items={["bit", "01100010"]} />

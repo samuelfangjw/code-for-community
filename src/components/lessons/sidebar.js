@@ -74,7 +74,7 @@ const Sidebar = ({ programme }) => {
   `)
 
   const links = data.allMdx.edges
-    .filter(edge => edge.node.frontmatter.programme == programme)
+    .filter(edge => edge.node.frontmatter.programme === programme)
     .map(edge => (
       <LinkContainer>
         <StyledLink to={edge.node.frontmatter.slug}>
