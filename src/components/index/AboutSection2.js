@@ -46,7 +46,7 @@ const AboutSection2 = () => {
     <Container data-sal="slide-right" data-sal-easing="ease">
       <Image fluid={data.file.childImageSharp.fluid}/>
       <TextContainer data-sal="zoom-in" data-sal-easing="ease" data-sal-delay="300">
-        <h1 style={{marginTop:"20px"}}>Our Methods</h1>
+        <h1 style={{marginTop:"20px"}}>Impacting our Community</h1>
         <Text>
           With the help of our volunteers, we design programmes to teach
           compututational thinking skills, robotics and visual literacy to
