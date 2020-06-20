@@ -5,6 +5,12 @@ import { useStaticQuery, graphql } from "gatsby"
 import { Carousel } from "react-responsive-carousel"
 import "./carousel.css"
 
+const Header = styled.h1`
+  margin: 0;
+  padding-top: 20px;
+  text-align: center;
+`
+
 const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
@@ -57,9 +63,7 @@ const Testimonials = () => {
     <div>
       <Container>
         <ImageContainer>
-          <Img
-            fixed={edge.node.frontmatter.cover_img.childImageSharp.fixed}
-          />
+          <Img fixed={edge.node.frontmatter.cover_img.childImageSharp.fixed} />
         </ImageContainer>
         <Name>{edge.node.frontmatter.name}</Name>
         <Text>{edge.node.frontmatter.quote}</Text>
@@ -69,15 +73,16 @@ const Testimonials = () => {
 
   return (
     <div>
-    <Carousel
-      autoPlay
-      infiniteLoop
-      showStatus={false}
-      showThumbs={false}
-      interval={4000}
-    >
-      {content}
-    </Carousel>
+      <Header>What Our Volunteers have to Say</Header>
+      <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showThumbs={false}
+        interval={4000}
+      >
+        {content}
+      </Carousel>
     </div>
   )
 }

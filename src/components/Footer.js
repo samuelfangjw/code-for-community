@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 const FooterContainer = styled.footer`
   border-top: 2px solid #33333320;
   background-color: #212121;
-  color: white;
+  color: #747474;
 `
 
 const FlexBox = styled.div`
@@ -26,10 +26,14 @@ const Header = styled.h4`
   margin-bottom: 10px;
 `
 
+const Text = styled.p`
+  margin: 0;
+`
+
 const NavLink = styled(Link)`
   display: block;
   text-decoration: none;
-  color: white;
+  color: #747474;
 `
 
 const Footer = () => {
@@ -38,7 +42,8 @@ const Footer = () => {
       <FlexBox>
         <Container>
           <Header>CODE FOR COMMUNITY</Header>
-          <p>Every Bit Counts</p>
+          <Text>Every Bit Counts</Text>
+          <Text>Made with &hearts; by C4C Volunteers</Text>
           © {new Date().getFullYear()} Code For Community
         </Container>
         <Container>

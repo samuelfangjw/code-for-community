@@ -1,24 +1,25 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { Button } from "@material-ui/core"
 
 const Container = styled.div`
   width: 100%;
-  background-color: #7955b4;
-  color: white;
+  background-color: #ff9900;
+  color: black;
   text-align: center;
 `
 
-const Button = styled(Link)`
-  display: inline-block;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  color: #ffffff;
-  background-color: #7aa8b7;
-  border-radius: 6px;
-  outline: none;
-  margin: 20px;
+const StyledButton = styled(Button)`
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #0066ff;
+  color: white;
+  font-weight: bold;
+
+  :hover {
+    background-color: #7298ff;
+  }
 `
 
 const Header = styled.h2`
@@ -31,13 +32,18 @@ const Text = styled.p`
 `
 
 const JoinUs = () => (
-  <Container data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
+  // <Container data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
+  <Container>
     <Header>Make a difference today.</Header>
     <Text>
       Love working with children? Keen to make a difference? Discover our
       programmes today!
     </Text>
-    <Button to="/programmes">Our Programmes</Button>
+    <Link to="/programmes" style={{textDecoration: 'none'}}>
+      <StyledButton variant="contained">
+        Our Programmes
+      </StyledButton>
+    </Link>
   </Container>
 )
 
