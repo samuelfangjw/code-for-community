@@ -12,6 +12,7 @@ const TextContainer = styled.div`
   text-align: center;
   color: black;
   background-color: white;
+  border-radius: 5px;
 `
 
 const Text = styled.p`

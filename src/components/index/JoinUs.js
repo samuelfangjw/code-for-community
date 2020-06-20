@@ -25,8 +25,8 @@ const Text = styled.p`
 `
 
 const JoinUs = () => (
-  // <Container data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
-  <Container>
+  <Container data-sal="slide-up" data-sal-delay="300" data-sal-easing="ease">
+  {/* <Container> */}
     <Header>Make a difference today.</Header>
     <Text>
       Love working with children? Keen to make a difference? Discover our
