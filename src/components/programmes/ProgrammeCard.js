@@ -161,10 +161,9 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 import { Card, CardMedia } from "@material-ui/core"
-// import { makeStyles } from "@material-ui/core/styles"
-// import Avatar from "@material-ui/core/Avatar"
 import Box from "@material-ui/core/Box"
 import Grid from "@material-ui/core/Grid"
+
 // import { useCoverCardMediaStyles } from "@mui-treasury/styles/cardMedia/cover"
 // import cx from "clsx"
 // import Color from "color"
@@ -417,15 +416,6 @@ const TextContainer = styled.div`
   max-width: 60%;
 `
 
-// const TextContainer = styled(Card)(
-
-//   {
-//   margin: "20px",
-//   display: "flex",
-//   flex-direction: "column",
-//   max-width: "60%"
-//   }
-// )
 
 const TextContainerStyle = makeStyles({
 root : {
@@ -618,7 +608,7 @@ const CustomCard = ({ styles, cover, logo, title, brand, date }) => {
 
 const HighlightCardDemo = React.memo(function HighlightCard() {
   const styles1 = useStyles({ color: 'red' });
-  const styles2 = useStyles({ color: 'red' });
+  const styles2 = useStyles({ color: 'black' });
   const gridStyles = useGridStyles();
   return (
     <>
@@ -638,11 +628,11 @@ const HighlightCardDemo = React.memo(function HighlightCard() {
           <CustomCard
             styles={styles1}
             brand={'Data Science'}
-            date={'02.04.2020'}
+            date={'July - August 2020'}
             cover={
-              'https://cdn.vox-cdn.com/thumbor/C6_-SDnnoFdS19XRH4XvAYN1BT8=/148x0:1768x1080/1400x1400/filters:focal(148x0:1768x1080):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/49641465/tracer_overwatch.0.0.jpg'
+              'https://blog.learningtree.com/wp-content/uploads/2018/07/datasci.jpg'
             }
-            logo={'https://d3fa68hw0m2vcc.cloudfront.net/bf4/156511609.jpeg'}
+            logo={'https://image.freepik.com/free-vector/brain-logo-template_15146-28.jpg'}
             title={
               <>
                 Data Science
@@ -654,18 +644,18 @@ const HighlightCardDemo = React.memo(function HighlightCard() {
         <Grid item>
           <CustomCard
             styles={styles2}
-            brand={'League of Legends Official'}
-            date={'02.04.2020'}
+            brand={'Project Kickstart'}
+            date={'July - August 2020'}
             cover={
-              'https://www.pcclean.io/wp-content/uploads/2019/04/559308.jpg'
+              'https://gradepowerlearning.com/wp-content/uploads/2018/04/inquiry-based-learning.jpeg'
             }
             logo={
-              'https://vignette.wikia.nocookie.net/youtube/images/7/77/LeagueOfLegends.jpg/revision/latest?cb=20180718040905'
+              'https://www.pixelstalk.net/wp-content/uploads/2016/05/All-Blacks-Logo-Backgrounds.jpg'
             }
             title={
               <>
-                Astronomy Binoculars
-                <br />A Great Alternative
+                Project Kickstart
+                <br /> Kick em'
               </>
             }
           />
@@ -685,29 +675,33 @@ const ProgrammeCard = ({ data }) => {
 
 
   return (
-      <Card raised={true}>
-        <Container to={link}>
+      // <Card raised={true}>
+      //   <Container to={link}>
 
-          {/* <TextContainer>
-            <Name>{name}</Name>
-            <Period>{period}</Period>
-            <Description>{description}</Description>
-            <FindOutMore>Find Out More</FindOutMore>
-          </TextContainer> */}
+      //     {/* <TextContainer>
+      //       <Name>{name}</Name>
+      //       <Period>{period}</Period>
+      //       <Description>{description}</Description>
+      //       <FindOutMore>Find Out More</FindOutMore>
+      //     </TextContainer> */}
 
-          <HighlightCardDemo></HighlightCardDemo>
-          <Card>
-          {/* <ImageContainer>
-          </ImageContainer> */}
-          <CardMedia image={image} />
+      //     <HighlightCardDemo></HighlightCardDemo>
+      //     <Card>
+      //     {/* <ImageContainer>
+      //     </ImageContainer> */}
+      //     <CardMedia image={image} />
 
-            <Name>{name}</Name>
-            <Period>{period}</Period>
-            <Description>{description}</Description>
-            <FindOutMore>Find Out More</FindOutMore>
-          </Card>
-        </Container>
-      </Card>
+      //       <Name>{name}</Name>
+      //       <Period>{period}</Period>
+      //       <Description>{description}</Description>
+      //       <FindOutMore>Find Out More</FindOutMore>
+      //     </Card>
+      //   </Container>
+      // </Card>
+
+      <HighlightCardDemo>
+        <Name> { name }</Name>
+      </HighlightCardDemo>
   )
 }
 
