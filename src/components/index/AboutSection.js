@@ -2,36 +2,33 @@ import React from "react"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { useStaticQuery, graphql } from "gatsby"
+import { Parallax, Background } from "react-parallax"
 
-const Container = styled.div`
-  display: flex;
-
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-`
 const TextContainer = styled.div`
+  width: 80vw;
+  max-width: 600px;
+  height: 60vh;
+  margin: auto;
   text-align: center;
-  position: relative;
   color: black;
-  flex-basis: 100%;
+  background-color: white;
 `
 
-const Text = styled.h3`
-  margin: 40px;
+const Text = styled.p`
+  margin: 20px 40px;
   }
 `
 
 const Image = styled(Img)`
-  width: 100%;
+  height: 100%;
 `
 
 const AboutSection = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "about_us" }, extension: { eq: "jpg" }) {
+      file(name: { eq: "20171021_134916" }, extension: { eq: "jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 1000) {
+          fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -40,16 +37,23 @@ const AboutSection = () => {
   `)
 
   return (
-    <Container Container data-sal="slide-left" data-sal-easing="ease">
-      <TextContainer data-sal="zoom-in" data-sal-easing="ease" data-sal-delay="300">
-        <h1 style={{marginTop:"20px"}}> Our Mission</h1>
-        <Text>
-          At Code For Community, we strive to create meaningful learning opportunities for children in
-          underserved communities.
-        </Text>
-      </TextContainer>
-      <Image fluid={data.file.childImageSharp.fluid} />
-    </Container>
+    <Parallax blur={10} strength={400}>
+      <div style={{ height: "100vh", display: "flex" }}>
+        <TextContainer>
+          <h1 style={{ marginTop: "20px" }}> Our Mission</h1>
+          <Text>
+            At Code For Community, we strive to create meaningful learning
+            opportunities for children in underserved communities.
+          </Text>
+        </TextContainer>
+      </div>
+
+      <Background className="custom-bg">
+        <div style={{ width: "100vw", height: "140vh" }}>
+          <Image fluid={data.file.childImageSharp.fluid} />
+        </div>
+      </Background>
+    </Parallax>
   )
 }
 
