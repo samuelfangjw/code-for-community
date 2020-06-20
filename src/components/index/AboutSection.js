@@ -40,7 +40,7 @@ const AboutSection = () => {
     <Parallax blur={10} strength={400}>
       <div style={{ height: "100vh", display: "flex" }}>
         <TextContainer>
-          <h1 style={{ marginTop: "20px" }}> Our Mission</h1>
+          <h1 style={{ marginTop: "40px" }}> Our Mission</h1>
           <Text>
             At Code For Community, we strive to create meaningful learning
             opportunities for children in underserved communities.

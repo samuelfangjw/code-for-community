@@ -15,13 +15,14 @@ const TextContainer = styled.div`
   position: relative;
   color: black;
   flex-basis: 100%;
+  align-self: center;
 
   @media (max-width: 900px) {
     order: -1;
   }
 `
 
-const Text = styled.h3`
+const Text = styled.p`
   margin: 40px;
 `
 
