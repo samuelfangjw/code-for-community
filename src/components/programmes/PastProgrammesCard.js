@@ -1,6 +1,15 @@
 import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
+import { useStaticQuery, graphql } from "gatsby"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css"
+
+const FlexBox = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+`
 
 const Container = styled.div`
   width: 320px;
@@ -28,17 +37,69 @@ const Text = styled.h3`
   grid-row: 2 / 3;
 `
 
-const PastProgrammesCard = ({ data }) => {
-  const image = data.node.frontmatter.image.childImageSharp.fluid
-  const name = data.node.frontmatter.name
+const PastProgrammesCard = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/programmes/past_programmes/" } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              name
+              image {
+                childImageSharp {
+                  fluid(maxWidth: 320) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
 
-  return (
+  const content = data.allMarkdownRemark.edges.map(edge => (
     <Container>
       <ImageContainer>
-        <Image fluid={image} />
+        <Image fluid={edge.node.frontmatter.image.childImageSharp.fluid} />
       </ImageContainer>
-      <Text>{name}</Text>
+      <Text>{edge.node.frontmatter.name}</Text>
     </Container>
+  ))
+
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  }
+
+  return (
+    <Carousel
+      responsive={responsive}
+      infinite={true}
+      autoPlay={true}
+      autoPlaySpeed={3000}
+      removeArrowOnDeviceType={["tablet", "mobile"]}
+    >
+      {content}
+    </Carousel>
   )
 }
 

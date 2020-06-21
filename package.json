@@ -36,6 +36,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "react-multi-carousel": "^2.5.5",
     "react-parallax": "^3.0.3",
     "react-responsive-carousel": "^3.2.7",
     "react-rotating-text": "^1.4.1",

@@ -33,10 +33,6 @@ const ProjectsPage = ({ data }) => {
     <ProgrammeCard data={edge} />
   ))
 
-  const pastContent = data.past.edges.map(edge => (
-    <PastProgrammesCard data={edge} />
-  ))
-
   return (
     <Layout>
       <SEO title="Programmes" />
@@ -55,7 +51,7 @@ const ProjectsPage = ({ data }) => {
       <Content>
         <FlexBox>{upcomingContent}</FlexBox>
         <Header>Past Programmes</Header>
-        <FlexBox>{pastContent}</FlexBox>
+        <PastProgrammesCard/>
       </Content>
     </Layout>
   )
@@ -81,25 +77,6 @@ export const pageQuery = graphql`
             image {
               childImageSharp {
                 fluid(maxWidth: 350) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    past: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/programmes/past_programmes/" } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            name
-            image {
-              childImageSharp {
-                fluid(maxWidth: 320) {
                   ...GatsbyImageSharpFluid
                 }
               }
