@@ -1,91 +1,100 @@
 import React from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import cx from "clsx"
+import { makeStyles } from "@material-ui/core/styles"
+import Card from "@material-ui/core/Card"
+import CardMedia from "@material-ui/core/CardMedia"
+import CardContent from "@material-ui/core/CardContent"
+import Button from "@material-ui/core/Button"
+import TextInfoContent from "@mui-treasury/components/content/textInfo"
+import { useBlogTextInfoContentStyles } from "@mui-treasury/styles/textInfoContent/blog"
+import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
 
-const ImageContainer = styled.div`
-  height: 360px;
-  width: 400px;
-  overflow: hidden;
-  flex-shrink: 0;
-`
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
+  root: {
+    margin: "auto",
+    borderRadius: spacing(2), // 16px
+    transition: "0.3s",
+    boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
+    position: "relative",
+    maxWidth: 500,
+    marginLeft: "auto",
+    overflow: "initial",
+    background: "#ffffff",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    paddingBottom: spacing(2),
+    [breakpoints.up("md")]: {
+      flexDirection: "row",
+      paddingTop: spacing(2),
+    },
+  },
+  media: {
+    width: "88%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: spacing(-3),
+    height: 0,
+    paddingBottom: "48%",
+    borderRadius: spacing(2),
+    backgroundColor: "#fff",
+    position: "relative",
+    [breakpoints.up("md")]: {
+      width: "100%",
+      marginLeft: spacing(-3),
+      marginTop: 0,
+      transform: "translateX(-8px)",
+    },
+    "&:after": {
+      content: '" "',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      // backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
+      borderRadius: spacing(2), // 16
+      opacity: 0.5,
+    },
+  },
+  content: {
+    padding: 24,
+  },
+  cta: {
+    marginTop: 24,
+    textTransform: "initial",
+  },
+}))
 
-const Image = styled(Img)`
-  height: 100%;
-`
-
-const TextContainer = styled.div`
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  max-width: 60%;
-`
-
-const Name = styled.h2``
-
-const Period = styled.p``
-
-const Description = styled.p``
-
-const FindOutMore = styled.div`
-  flex-grow: 1;
-  align-self: flex-end;
-  display:flex;
-  flex-direction: column-reverse;
-  text-align: right;
-  margin:10px;
-
-  :before {
-    width: 0%;
-    content: ".";
-    color: transparent;
-    background: #301681;
-    height: 3px;
-    transition: all 0.4s ease-in;
-  }
-`
-
-//container has to be declared after FindOutMore 
-const Container = styled(Link)`
-  position: relative;
-  display: flex;
-  margin: 20px;
-  text-decoration: none;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  color: black;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.06);
-
-  &:hover {
-    transform:scale(1.05);
-  }
-
-  &:hover ${FindOutMore}:before {
-    width: 100%;
-  }
-`
-
-const ProgrammeCard = ({ data }) => {
+export const ProgrammesCard = React.memo(function BlogCard({ data }) {
   const link = data.node.frontmatter.link
-  const image = data.node.frontmatter.image.childImageSharp.fluid
+  const image = data.node.frontmatter.image.childImageSharp.fluid.src
   const name = data.node.frontmatter.name
   const description = data.node.frontmatter.description
   const period = data.node.frontmatter.period
 
+  const styles = useStyles()
+  const {
+    button: buttonStyles,
+    ...contentStyles
+  } = useBlogTextInfoContentStyles()
+  const shadowStyles = useOverShadowStyles()
   return (
-    <Container to={link}>
-      <ImageContainer>
-        <Image fluid={image} />
-      </ImageContainer>
-      <TextContainer>
-        <Name>{name}</Name>
-        <Period>{period}</Period>
-        <Description>{description}</Description>
-        <FindOutMore>Find Out More</FindOutMore>
-      </TextContainer>
-    </Container>
+    <Link to={link} style={{textDecoration: 'none'}}>
+    <Card className={cx(styles.root, shadowStyles.root)}>
+      <CardMedia className={styles.media} image={image} />
+      <CardContent>
+        <TextInfoContent
+          classes={contentStyles}
+          overline={period}
+          heading={name}
+          body={description}
+        />
+        <Button className={buttonStyles}>Find Out More</Button>
+      </CardContent>
+    </Card></Link>
   )
-}
+})
 
-export default ProgrammeCard
+export default ProgrammesCard
