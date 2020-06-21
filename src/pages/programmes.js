@@ -16,6 +16,11 @@ const FlexBox = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
+  margin: 20px;
+
+  @media (max-width: 1190px) {
+    flex-direction: column;
+  }
 `
 
 const Header = styled.h1`
@@ -51,7 +56,7 @@ const ProjectsPage = ({ data }) => {
       <Content>
         <FlexBox>{upcomingContent}</FlexBox>
         <Header>Past Programmes</Header>
-        <PastProgrammesCard/>
+        <PastProgrammesCard />
       </Content>
     </Layout>
   )

@@ -12,7 +12,7 @@ import { useOverShadowStyles } from "@mui-treasury/styles/shadow/over"
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   root: {
-    margin: "auto",
+    margin: "30px auto",
     borderRadius: spacing(2), // 16px
     transition: "0.3s",
     boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
@@ -26,6 +26,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     alignItems: "center",
     paddingBottom: spacing(2),
     [breakpoints.up("md")]: {
+      margin: '20px auto',
       flexDirection: "row",
       paddingTop: spacing(2),
     },
@@ -41,7 +42,7 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     backgroundColor: "#fff",
     position: "relative",
     [breakpoints.up("md")]: {
-      width: "100%",
+      width: '120%',
       marginLeft: spacing(-3),
       marginTop: 0,
       transform: "translateX(-8px)",
@@ -53,9 +54,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       left: 0,
       width: "100%",
       height: "100%",
-      // backgroundImage: 'linear-gradient(147deg, #fe8a39 0%, #fd3838 74%)',
       borderRadius: spacing(2), // 16
-      opacity: 0.5,
+      // opacity: 0.5,
     },
   },
   content: {
@@ -81,19 +81,20 @@ export const ProgrammesCard = React.memo(function BlogCard({ data }) {
   } = useBlogTextInfoContentStyles()
   const shadowStyles = useOverShadowStyles()
   return (
-    <Link to={link} style={{textDecoration: 'none'}}>
-    <Card className={cx(styles.root, shadowStyles.root)}>
-      <CardMedia className={styles.media} image={image} />
-      <CardContent>
-        <TextInfoContent
-          classes={contentStyles}
-          overline={period}
-          heading={name}
-          body={description}
-        />
-        <Button className={buttonStyles}>Find Out More</Button>
-      </CardContent>
-    </Card></Link>
+    <Link to={link} style={{ textDecoration: "none" }}>
+      <Card className={cx(styles.root, shadowStyles.root)}>
+        <CardMedia className={styles.media} image={image} />
+        <CardContent>
+          <TextInfoContent
+            classes={contentStyles}
+            overline={period}
+            heading={name}
+            body={description}
+          />
+          <Button className={buttonStyles}>Find Out More</Button>
+        </CardContent>
+      </Card>
+    </Link>
   )
 })
 
