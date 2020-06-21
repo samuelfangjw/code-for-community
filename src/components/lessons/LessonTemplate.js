@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../../components/layout"
 import Sidebar from "./sidebar.js"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -21,16 +20,13 @@ export default function Template({
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
   return (
-    <Layout>
-      <Container>
-        <Sidebar programme={frontmatter.programme} />
-          <Content>
-            <h1>{frontmatter.title}</h1>
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          </Content>
-      </Container>
-      
-    </Layout>
+    <Container>
+      <Sidebar programme={frontmatter.programme} />
+      <Content>
+        <h1>{frontmatter.title}</h1>
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      </Content>
+    </Container>
   )
 }
 export const pageQuery = graphql`
