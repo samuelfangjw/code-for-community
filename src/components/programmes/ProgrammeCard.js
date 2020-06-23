@@ -15,7 +15,8 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     margin: "30px auto",
     borderRadius: spacing(2), // 16px
     transition: "0.3s",
-    boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
+    // boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
+    boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
     position: "relative",
     maxWidth: 500,
     marginLeft: "auto",
@@ -30,6 +31,12 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
       flexDirection: "row",
       paddingTop: spacing(2),
     },
+    '&:hover': {
+      transform: 'translateY(-2px)',
+      // boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)'
+      boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
+      transform: 'scale(1.1)'
+    }
   },
   media: {
     width: "88%",
