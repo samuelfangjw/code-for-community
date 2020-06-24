@@ -19,9 +19,23 @@ export default function Template({
 }) {
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
+
+  // Detecting screen width
+  const [width, setWidth] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  const breakpoint = 1000
+
+  React.useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const handleWindowResize = () => setWidth(window.innerWidth)
+    window.addEventListener("resize", handleWindowResize)
+
+    return () => window.removeEventListener("resize", handleWindowResize)
+  }, [])
+
   return (
     <Container>
-      <Sidebar programme={frontmatter.programme} />
+      {width > breakpoint ? <Sidebar programme={frontmatter.programme} /> : <div />}
       <Content>
         <h1>{frontmatter.title}</h1>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
