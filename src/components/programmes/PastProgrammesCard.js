@@ -95,7 +95,7 @@ const PastProgrammesCard = () => {
       responsive={responsive}
       infinite={true}
       autoPlay={true}
-      autoPlaySpeed={2500}
+      autoPlaySpeed={3000}
       removeArrowOnDeviceType={["tablet", "mobile"]}
     >
       {content}
