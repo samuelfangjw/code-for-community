@@ -7,40 +7,48 @@ const SidebarContainer = styled.div`
   background: white;
   position: sticky;
   top: 0;
-  height: 95vh;
+  height: 100vh;
   border-right: 2px solid #33333320;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 `
 
 const LinkContainer = styled.div`
-  margin: 10px 5vw;
-  text-decoration: none;
+  margin: 0;
+`
+
+const Border = styled.div`
+  margin: 20px 0;
+  width: 100%;
+  border-top: 1px solid black;
 `
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
-  display: inline-block;
+  display: block;
   white-space: nowrap;
-  margin: 0 0px;
-  transition: all 200ms ease-in;
   position: relative;
   transition: all 200ms ease-in;
+  margin: 0 50px;
+  text-decoration: none;
 
   :after {
     position: absolute;
-    bottom: 25px;
+    bottom: 0;
     left: 0;
     right: 0;
     width: 0%;
     content: ".";
     color: transparent;
-    background: #301681;
+    background: darkorange;
     height: 1px;
     transition: all 0.4s ease-in;
   }
 
   :hover {
-    color: #301681;
+    color: darkorange;
     ::after {
       width: 100%;
     }
@@ -50,8 +58,30 @@ const StyledLink = styled(Link)`
 const LinkText = styled.p`
   overflow: hidden;
   white-space: nowrap;
-  text-overflow:ellipsis;
+  text-overflow: ellipsis;
+  margin: 0;
 `
+
+const Links = ({ to, name }) => (
+  <LinkContainer>
+    <StyledLink to={to}>
+      <LinkText>{name}</LinkText>
+    </StyledLink>
+  </LinkContainer>
+)
+
+const HeaderText = styled.h1`
+  margin: 5px;
+  text-align: center;
+`
+
+const Header = () => (
+  <>
+    <HeaderText>Code</HeaderText>
+    <HeaderText>for</HeaderText>
+    <HeaderText>Community</HeaderText>
+  </>
+)
 
 const Sidebar = ({ programme }) => {
   const data = useStaticQuery(graphql`
@@ -76,14 +106,26 @@ const Sidebar = ({ programme }) => {
   const links = data.allMdx.edges
     .filter(edge => edge.node.frontmatter.programme === programme)
     .map(edge => (
-      <LinkContainer>
-        <StyledLink to={edge.node.frontmatter.slug}>
-          <LinkText>{edge.node.frontmatter.title}</LinkText>
-        </StyledLink>
-      </LinkContainer>
+      <Links
+        to={edge.node.frontmatter.slug}
+        name={edge.node.frontmatter.title}
+      />
     ))
 
-  return <SidebarContainer>{links}</SidebarContainer>
+  return (
+    <SidebarContainer>
+      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+        <Header />
+      </Link>
+      <Border />
+        <Links to="/" name="Home" />
+        <Links to="/about" name="About" />
+        <Links to="/contact" name="Contact Us" />
+        <Links to="/programmes" name="Programmes" />
+      <Border />
+      {links}
+    </SidebarContainer>
+  )
 }
 
 export default Sidebar
