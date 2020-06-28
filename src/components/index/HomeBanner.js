@@ -64,7 +64,6 @@ const AnimatedArrow = styled.div`
   position: absolute;
   bottom: 5%;
   width: 100vw;
-  border: 1px solid white;
   text-align: center;
 `
 
