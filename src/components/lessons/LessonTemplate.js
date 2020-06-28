@@ -1,12 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Sidebar from "./sidebar.js"
+import LessonNavbar from "./LessonNavbar.js"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const Container = styled.div`
   display: flex;
   justify-content: flex-start;
+
+  @media (max-width: 1000px) {
+    flex-flow: column nowrap;
+  }
 `
 
 const Content = styled.div`
@@ -21,11 +26,13 @@ export default function Template({
   const { frontmatter, body } = mdx
 
   // Detecting screen width
-  const [width, setWidth] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  const [width, setWidth] = React.useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  )
   const breakpoint = 1000
 
   React.useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return
 
     const handleWindowResize = () => setWidth(window.innerWidth)
     window.addEventListener("resize", handleWindowResize)
@@ -35,7 +42,11 @@ export default function Template({
 
   return (
     <Container>
-      {width > breakpoint ? <Sidebar programme={frontmatter.programme} /> : <div />}
+      {width > breakpoint ? (
+        <Sidebar programme={frontmatter.programme} />
+      ) : (
+        <LessonNavbar programme={frontmatter.programme} />
+      )}
       <Content>
         <h1>{frontmatter.title}</h1>
         <MDXRenderer>{data.mdx.body}</MDXRenderer>
