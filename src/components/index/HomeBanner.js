@@ -1,5 +1,4 @@
 import React from "react"
-import ReactRotatingText from "react-rotating-text"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
@@ -25,16 +24,6 @@ const HeaderText = styled.h1`
   margin: 0;
 `
 
-const RotatingText = styled(ReactRotatingText)`
-  position: inline;
-`
-
-const Text = styled.p`
-  display: inline;
-  margin-right: 5px;
-  margin-left: 2px;
-`
-
 const TextContainer = styled.div`
   display: flex;
   text-align: center;
@@ -43,16 +32,12 @@ const TextContainer = styled.div`
   margin: auto;
   align-items: center;
   transform: translateY(-20%);
-  max-width: 95%;
+  max-width: 90%;
   text-shadow: 0px 0px 1px #111111;
 
   @media (max-width: 768px) {
     transform: translateY(-10%);
   }
-`
-
-const RotatingTextContainer = styled.div`
-  display: flex;
 `
 
 const Button = styled(Link)`
@@ -75,13 +60,18 @@ const Button = styled(Link)`
   }
 `
 
-const Arrow = styled.div`
+const AnimatedArrow = styled.div`
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
+  width: 100vw;
+  border: 1px solid white;
+  text-align: center;
+`
+
+const Arrow = styled.div`
+  margin-bottom: 10px;
   border: solid white;
   border-width: 0 0 2px 2px;
-  left: 50%;
-  margin-left: -10px;
   display: inline-block;
   padding: 10px;
   transform: rotate(-45deg);
@@ -99,20 +89,14 @@ const Arrow = styled.div`
       transform: rotate(-45deg) translate(0, 0);
     }
   }
-
-  @media (max-width: 768px) {
-    bottom: 11%;
-  }
 `
 
 const ScrollText = styled.div`
-  position: absolute;
-  bottom: 4%;
-  margin: 0;
-  left: 25%;
-  width: 50%;
+  margin: 0 auto;
   text-align: center;
+  max-width: 50vw;
 `
+
 
 const HomeBanner = () => {
   const data = useStaticQuery(graphql`
@@ -133,15 +117,12 @@ const HomeBanner = () => {
         <TextContainer>
           <HeaderText>Enriching the community one</HeaderText>
           <HeaderText>child at a time</HeaderText>
-          {/* <RotatingTextContainer>
-            <Text>Every </Text>
-            <RotatingText items={["bit", "01100010"]} />
-            <Text> Counts</Text>
-          </RotatingTextContainer> */}
           <Button to="/programmes">Discover Our Programmes</Button>
         </TextContainer>
+        <AnimatedArrow>
           <Arrow onClick={() => scrollTo('#about')} />
           <ScrollText onClick={() => scrollTo('#about')}>Scroll down to find out more</ScrollText>
+        </AnimatedArrow>
       </DarkLayer>
     </BackgroundContainer>
   )
