@@ -8,6 +8,7 @@ const Container = styled.div`
   background-color: #ff9900;
   color: black;
   text-align: center;
+  padding: 50px 0;
 `
 
 const StyledButton = styled(Button)`

@@ -137,7 +137,7 @@ const Testimonials = props => {
   ))
 
   return (
-    <div>
+    <div style={{padding: '50px'}}>
       <Header>What Our Volunteers have to Say</Header>
       <Carousel
         responsive={responsive}
