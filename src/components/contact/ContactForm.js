@@ -35,6 +35,10 @@ const SubmitButton = styled.button`
   border-radius: 10px;
 `
 
+const FeedBack = styled.div`
+  margin: 20px;
+`
+
 class ContactForm extends React.Component {
   constructor(props) {
     super(props)
@@ -72,7 +76,7 @@ class ContactForm extends React.Component {
       })
       .catch(err =>
         this.setState({
-          feedbackMsg: "Form could not be submitted.",
+          feedbackMsg: "Form could not be submitted, please try again.",
         })
       )
   }
@@ -80,7 +84,6 @@ class ContactForm extends React.Component {
   render() {
     return (
       <Container>
-        {this.state.feedbackMsg && <p>{this.state.feedbackMsg}</p>}
         <form
             ref={this.domRef}
           name="Contact Form"
@@ -102,7 +105,11 @@ class ContactForm extends React.Component {
 
           <SubmitButton type="submit">Submit</SubmitButton>
         </form>
+        <FeedBack>
+          {this.state.feedbackMsg && <p>{this.state.feedbackMsg}</p>}
+        </FeedBack>
       </Container>
+      
     )
   }
 }
