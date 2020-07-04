@@ -4,11 +4,11 @@ import SEO from "../components/seo";
 import ContactBanner from "../components/contact/ContactBanner";
 import ContactForm from "../components/contact/ContactForm";
 
-const Contact = () => (
+const Contact = props => (
   <Layout>
     <SEO title="Contact Us" />
     <ContactBanner/>
-    <ContactForm />
+    <ContactForm location={props.location} />
   </Layout>
 )
 

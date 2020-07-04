@@ -1,6 +1,8 @@
 import React from "react"
 import { Paper } from "@material-ui/core"
 import styled from "styled-components"
+import axios from "axios"
+import * as qs from "query-string"
 
 const Container = styled(Paper)`
   margin: 20px auto;
@@ -33,24 +35,76 @@ const SubmitButton = styled.button`
   border-radius: 10px;
 `
 
-const ContactForm = () => {
-  return (
-    <Container>
-      <form name="Contact Form" method="POST" data-netlify="true" action="/thank-you">
-        <input type="hidden" name="form-name" value="Contact Form" />
-        <Label>Name</Label>
-        <Input type="text" name="name" />
+class ContactForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.domRef = React.createRef()
+    this.state = { feedbackMsg: null }
+  }
 
-        <Label>Email</Label>
-        <Input type="email" name="email" />
+  handleSubmit(event) {
+    // Do not submit form via HTTP, since we're doing that via XHR request.
+    event.preventDefault()
+    // Loop through this component's refs (the fields) and add them to the
+    // formData object. What we're left with is an object of key-value pairs
+    // that represent the form data we want to send to Netlify.
+    const formData = {}
+    Object.keys(this.refs).map(key => (formData[key] = this.refs[key].value))
 
-        <Label>Message</Label>
-        <Textarea name="message" />
+    // Set options for axios. The URL we're submitting to
+    // (this.props.location.pathname) is the current page.
+    const axiosOptions = {
+      url: this.props.location.pathname,
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      data: qs.stringify(formData),
+    }
 
-        <SubmitButton type="submit">Submit</SubmitButton>
-      </form>
-    </Container>
-  )
+    // Submit to Netlify. Upon success, set the feedback message and clear all
+    // the fields within the form. Upon failure, keep the fields as they are,
+    // but set the feedback message to show the error state.
+    axios(axiosOptions)
+      .then(response => {
+        this.setState({
+          feedbackMsg: "Form submitted successfully!",
+        })
+        this.domRef.current.reset()
+      })
+      .catch(err =>
+        this.setState({
+          feedbackMsg: "Form could not be submitted.",
+        })
+      )
+  }
+
+  render() {
+    return (
+      <Container>
+        {this.state.feedbackMsg && <p>{this.state.feedbackMsg}</p>}
+        <form
+            ref={this.domRef}
+          name="Contact Form"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          onSubmit={event => this.handleSubmit(event)}
+        >
+          <input ref="bot-field" type="hidden" name="bot-field" />
+          <input ref="form-name" type="hidden" name="form-name" value="Contact Form" />
+          <Label>Name</Label>
+          <Input ref="name" type="text" name="name" required />
+
+          <Label>Email</Label>
+          <Input ref="email" type="email" name="email" required />
+
+          <Label>Message</Label>
+          <Textarea ref="message" name="message" required />
+
+          <SubmitButton type="submit">Submit</SubmitButton>
+        </form>
+      </Container>
+    )
+  }
 }
 
 export default ContactForm
