@@ -1,11 +1,10 @@
 import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import "./index.css";
 import ContactBanner from "../components/contact/ContactBanner";
 import ContactForm from "../components/contact/ContactForm";
 
-const IndexPage = () => (
+const Contact = () => (
   <Layout>
     <SEO title="Contact Us" />
     <ContactBanner/>
@@ -13,4 +12,4 @@ const IndexPage = () => (
   </Layout>
 )
 
-export default IndexPage
+export default Contact
