@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import Card from "@material-ui/core/Card"
-import { Textfit } from 'react-textfit';
+import { Textfit } from "react-textfit"
 
 const Header = styled.h1`
   margin: 0;
@@ -106,11 +106,13 @@ const Testimonials = props => {
     }
   `)
 
-  const [width, setWidth] = React.useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  const [width, setWidth] = React.useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  )
   const breakpoint = 786
 
   React.useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return
 
     const handleWindowResize = () => setWidth(window.innerWidth)
     window.addEventListener("resize", handleWindowResize)
@@ -136,14 +138,15 @@ const Testimonials = props => {
           </ImageContainer>
           <Name>{edge.node.frontmatter.name}</Name>
         </div>
-        <Text> 
-        <Textfit mode="multi">{edge.node.frontmatter.quote}</Textfit></Text>
+        <Text>
+          <Textfit mode="multi">{edge.node.frontmatter.quote}</Textfit>
+        </Text>
       </Container>
     </CardContainer>
   ))
 
   return (
-    <div style={{padding: '50px'}}>
+    <div style={{ padding: "50px" }}>
       <Header>What Our Volunteers have to Say</Header>
       <Carousel
         responsive={responsive}

@@ -10,7 +10,7 @@ const Header = styled.h2`
 `
 
 const Text = styled.p`
-  text-align: center;
+  font-size: larger;
 `
 
 const ContactText = () => (

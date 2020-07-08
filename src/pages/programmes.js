@@ -44,9 +44,6 @@ const ProjectsPage = ({ data }) => {
       <ProgrammesBanner />
       <Header>Our programmes</Header>
       <Text>
-        At code for community, we belive in impacting our community one child at a time.
-      </Text>
-      <Text>
         We design and conduct computing related lessons for children ranging from basic programming skills, to robotics, to visual literacy courses. We tailor the lessons to suit the ability level of our students and aim for a 1-1 volunteer to student ratio so each child gets individual attention.
       </Text>
       <Text>

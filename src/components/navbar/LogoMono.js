@@ -19,7 +19,7 @@ const LogoWrap = styled.div`
 const Logo = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "logo" }, extension: { eq: "png" }) {
+      file(name: { eq: "logo_mono" }, extension: { eq: "png" }) {
         childImageSharp {
           fluid(maxWidth: 230) {
             ...GatsbyImageSharpFluid

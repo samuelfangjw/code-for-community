@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -7,9 +7,13 @@ const NavItem = styled(Link)`
   color: white;
   display: inline-block;
   white-space: nowrap;
-  margin: 0 1vw;
+  margin: auto 1vw;
   transition: all 200ms ease-in;
   position: relative;
+
+  &[data-active="true"] {
+    color: #f2af58;
+  }
 
   :after {
     position: absolute;
@@ -19,13 +23,13 @@ const NavItem = styled(Link)`
     width: 0%;
     content: ".";
     color: transparent;
-    background: darkorange;
+    background: #d78111;
     height: 1px;
     transition: all 0.4s ease-in;
   }
 
   :hover {
-    color: darkorange;
+    color: #d78111;
     ::after {
       width: 100%;
     }
@@ -38,12 +42,31 @@ const NavItem = styled(Link)`
   }
 `
 const NavbarLinks = () => {
+  const [scrolled, setScrolled] = useState(false)
+
+  // change state on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10
+      if (isScrolled !== scrolled) {
+        setScrolled(!scrolled)
+      }
+    }
+
+    document.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => {
+      // clean up the event handler when the component unmounts
+      document.removeEventListener("scroll", handleScroll)
+    }
+  }, [scrolled])
+
   return (
     <>
-      <NavItem to="/">Home</NavItem>
-      <NavItem to="/about">About</NavItem>
-      <NavItem to="/contact">Contact Us</NavItem>
-      <NavItem to="/programmes">Programmes</NavItem>
+      <NavItem to="/" data-active={scrolled}>Home</NavItem>
+      <NavItem to="/about" data-active={scrolled}>About</NavItem>
+      <NavItem to="/contact" data-active={scrolled}>Contact Us</NavItem>
+      <NavItem to="/programmes" data-active={scrolled}>Programmes</NavItem>
     </>
   )
 }

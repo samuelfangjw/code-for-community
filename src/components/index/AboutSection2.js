@@ -24,6 +24,7 @@ const TextContainer = styled.div`
 
 const Text = styled.p`
   margin: 40px;
+  font-size: larger;
 `
 
 const Image = styled(Img)`
@@ -45,13 +46,19 @@ const AboutSection2 = () => {
 
   return (
     <Container data-sal="slide-right" data-sal-easing="ease">
-      <Image fluid={data.file.childImageSharp.fluid}/>
-      <TextContainer data-sal="zoom-in" data-sal-easing="ease" data-sal-delay="300">
-        <h1 style={{marginTop:"20px"}}>Impacting our Community</h1>
+      <Image fluid={data.file.childImageSharp.fluid} />
+      <TextContainer
+        data-sal="zoom-in"
+        data-sal-easing="ease"
+        data-sal-delay="300"
+      >
+        <h1 style={{ marginTop: "20px" }}>Impacting our Community</h1>
         <Text>
           With the help of our volunteers, we design programmes to teach
           compututational thinking skills, robotics and visual literacy to
-          children in a meaningful and engaging way.
+          children in a meaningful and engaging way. Volunteers who are assigned
+          to students stay on for extended periods of time so that they can get
+          to know their student well and serve as positive role models for them
         </Text>
       </TextContainer>
     </Container>

@@ -16,7 +16,7 @@ const DarkLayer = styled.div`
   height: 100%;
   width: 100%;
   color: white;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.075);
 `
 
 const HeaderText = styled.h1`

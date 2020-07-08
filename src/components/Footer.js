@@ -6,6 +6,7 @@ const FooterContainer = styled.footer`
   border-top: 2px solid #33333320;
   background-color: #212121;
   color: #747474;
+  padding: 5px;
 `
 
 const FlexBox = styled.div`
@@ -16,9 +17,13 @@ const FlexBox = styled.div`
   @media (max-width: 768px) {
     justify-content: flex-start;
     flex-flow: column-reverse wrap;
+  }
 `
 
 const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   margin: 20px;
 `
 
@@ -28,12 +33,14 @@ const Header = styled.h4`
 
 const Text = styled.p`
   margin: 0;
+  font-size: smaller;
 `
 
 const NavLink = styled(Link)`
   display: block;
   text-decoration: none;
   color: #747474;
+  font-size: smaller;
 `
 
 const Footer = () => {
@@ -41,10 +48,14 @@ const Footer = () => {
     <FooterContainer>
       <FlexBox>
         <Container>
+          <span>
           <Header>CODE FOR COMMUNITY</Header>
           <Text>Every Bit Counts</Text>
-          <Text>Made with &hearts; by C4C Volunteers</Text>
-          © {new Date().getFullYear()} Code For Community
+          </span>
+          <span>
+            <Text>Made with &hearts; by C4C Volunteers</Text>
+            <Text>©{new Date().getFullYear()} Code For Community</Text>
+          </span>
         </Container>
         <Container>
           <Header>Navigate</Header>
@@ -54,7 +65,6 @@ const Footer = () => {
           <NavLink to="/programmes">Programmes</NavLink>
         </Container>
       </FlexBox>
-      
     </FooterContainer>
   )
 }

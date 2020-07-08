@@ -22,17 +22,23 @@ const AboutPage = ({ data }) => (
     <AboutBanner />
     <h1 style={{ textAlign: "center", margin: "20px auto" }}>Who are we?</h1>
     <Text>
-      Code for Community is an umbrella project of NUS School of Computing (SoC) that aims to bring computing education to underserved communities. It is run by a network of SoC Students, Staff and Alumni who take great pride in serving our community. 
+      Code for Community is a project by NUS School of Computing (SoC) that aims
+      to empower children from underserved communities. Through computing, we
+      aim to help children develop problem solving skills which they can then
+      apply to other areas of their life. Our acomplished volunteers also serve
+      as inpiration and a positive role model for the children to emulate.
     </Text>
     <Text>
-      Code for Community was founded in March 2015 by Dr. Wadhwa Bimlesh.
+      Code for Community was founded in March 2015 by Dr. Wadhwa Bimlesh. It has
+      since grown to be managed by a large family of volunteers comprising SoC
+      Students, Staff and Alumni who take great pride in serving our community.
     </Text>
     <h1 style={{ textAlign: "center", margin: "20px auto" }}>Meet the Team!</h1>
-    <Header>Advisors</Header>
     <AboutCard about={data.bimlesh.edges[0].node.frontmatter} />
-    <Header>Operations</Header>
     <AboutCard about={data.adele.edges[0].node.frontmatter} />
-    <h1 style={{ textAlign: "center", margin: "20px auto"}}>Not Forgetting Our Partners</h1>
+    <h1 style={{ textAlign: "center", margin: "20px auto" }}>
+      Not Forgetting Our Partners
+    </h1>
     <Partners />
   </Layout>
 )

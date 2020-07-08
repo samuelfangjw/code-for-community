@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import NavbarLinks from "./NavbarLinks"
 import Logo from "./Logo"
+import LogoMono from "./LogoMono"
 
 const Navigation = styled.nav`
   height: 10vh;
   display: flex;
-  ${"" /* background-color: #fff; */}
   ${"" /* position: relative; */}
   position: absolute;
   width: 100%;
@@ -20,11 +20,9 @@ const Navigation = styled.nav`
   background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
 
   &[data-active="true"] {
-    @media (max-width: 768px) {
-      background: none;
-      background-color: #292826;
-      position: sticky;
-    }
+    background: none;
+    background-color: #292826;
+    position: fixed;
   }
 
   @media (max-width: 768px) {
@@ -88,6 +86,15 @@ const Hamburger = styled.div`
     transition: all 0.3s linear;
   }
 
+  &[data-active="true"] {
+    background-color: #f2af58;
+
+    ::before,
+    ::after {
+      background-color: #f2af58;
+    }
+  }
+
   ::before {
     transform: ${props =>
       props.open ? "rotate(-90deg) translate(-8px, 0px)" : "rotate(0deg)"};
@@ -123,16 +130,16 @@ const Navbar = () => {
 
   return (
     <Navigation data-active={scrolled}>
-      <Logo />
+      {scrolled ? <Logo/> : <LogoMono/>}
       <Toggle
         navbarOpen={navbarOpen}
         onClick={() => setNavbarOpen(!navbarOpen)}
       >
-        {navbarOpen ? <Hamburger open /> : <Hamburger />}
+        {navbarOpen ? <Hamburger open data-active={scrolled}/> : <Hamburger data-active={scrolled}/>}
       </Toggle>
       {navbarOpen ? (
         <Navbox>
-          <NavbarLinks />
+          <NavbarLinks/>
         </Navbox>
       ) : (
         <Navbox open>

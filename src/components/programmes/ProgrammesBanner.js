@@ -4,10 +4,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 
 const BackgroundContainer = styled(BackgroundImage)`
-    height: 75vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
+  height: 75vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
 `
 
 const DarkLayer = styled.div`
@@ -15,7 +15,7 @@ const DarkLayer = styled.div`
   height: 100%;
   width: 100%;
   color: white;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   align-items: center;
 `
 const TextContainer = styled.div`
@@ -40,9 +40,7 @@ const ProgrammesBanner = () => {
   `)
 
   return (
-    <BackgroundContainer
-      fluid={data.file.childImageSharp.fluid}
-    >
+    <BackgroundContainer fluid={data.file.childImageSharp.fluid}>
       <DarkLayer>
         <TextContainer>
           <h1>Impact the community</h1>
