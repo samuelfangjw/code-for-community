@@ -8,10 +8,6 @@ import AboutCard from "../components/about/AboutCard"
 import AboutBanner from "../components/about/AboutBanner"
 import Partners from "../components/about/Partners"
 
-const Header = styled.h2`
-  margin: 5px 50px;
-`
-
 const Text = styled.p`
   margin: 10px 5vw;
   text-align: justify;

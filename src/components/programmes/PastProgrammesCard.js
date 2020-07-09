@@ -5,12 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 
-const FlexBox = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-`
-
 const Container = styled.div`
   width: 320px;
   height: 350px;

@@ -1,18 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Sidebar from "./sidebar.js"
-import LessonNavbar from "./LessonNavbar.js"
 import styled from "styled-components"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-
-const Container = styled.div`
-  display: flex;
-  justify-content: flex-start;
-
-  @media (max-width: 1000px) {
-    flex-flow: column nowrap;
-  }
-`
 
 const Content = styled.div`
   margin: 20px;
@@ -29,7 +19,6 @@ export default function Template({
   const [width, setWidth] = React.useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   )
-  const breakpoint = 1000
 
   React.useEffect(() => {
     if (typeof window === "undefined") return
@@ -40,18 +29,15 @@ export default function Template({
     return () => window.removeEventListener("resize", handleWindowResize)
   }, [])
 
+  const content = (
+    <Content>
+      <h1>{frontmatter.title}</h1>
+      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+    </Content>
+  )
+
   return (
-    <Container>
-      {width > breakpoint ? (
-        <Sidebar programme={frontmatter.programme} />
-      ) : (
-        <LessonNavbar programme={frontmatter.programme} />
-      )}
-      <Content>
-        <h1>{frontmatter.title}</h1>
-        <MDXRenderer>{data.mdx.body}</MDXRenderer>
-      </Content>
-    </Container>
+    <Sidebar programme={frontmatter.programme} content={content}/>
   )
 }
 export const pageQuery = graphql`

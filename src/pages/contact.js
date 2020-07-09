@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import ContactBanner from "../components/contact/ContactBanner"
 import ContactForm from "../components/contact/ContactForm"
 import ContactText from "../components/contact/ContactText"
-import styled from "styled-components"
 
 const Contact = props => (
   <Layout>
@@ -12,7 +11,6 @@ const Contact = props => (
     <ContactBanner />
     <ContactText />
     <ContactForm location={props.location} />
-    
   </Layout>
 )
 

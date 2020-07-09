@@ -1,89 +1,67 @@
 import React from "react"
+import AppBar from "@material-ui/core/AppBar"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import Divider from "@material-ui/core/Divider"
+import Drawer from "@material-ui/core/Drawer"
+import Hidden from "@material-ui/core/Hidden"
+import IconButton from "@material-ui/core/IconButton"
+import List from "@material-ui/core/List"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemText from "@material-ui/core/ListItemText"
+import MenuIcon from "@material-ui/icons/Menu"
+import Toolbar from "@material-ui/core/Toolbar"
+import Typography from "@material-ui/core/Typography"
+import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { Link, useStaticQuery, graphql } from "gatsby"
 
-const SidebarContainer = styled.div`
-  background: white;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  border-right: 2px solid #33333320;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-`
+const drawerWidth = 220
+const drawerHeight = 64
 
-const LinkContainer = styled.div`
-  margin: 0;
-`
-
-const Border = styled.div`
-  margin: 20px 0;
-  width: 100%;
-  border-top: 1px solid black;
-`
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+  },
+  drawer: {
+    [theme.breakpoints.up("sm")]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    background: '#d78111',
+    [theme.breakpoints.up("sm")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+  },
+  appBarText: {
+    flex: '1',
+  },
+  menuButton: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    marginTop: drawerHeight,
+  },
+}))
 
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: black;
-  display: block;
-  white-space: nowrap;
-  position: relative;
-  transition: all 200ms ease-in;
-  margin: 0 50px;
-  text-decoration: none;
-
-  :after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 0%;
-    content: ".";
-    color: transparent;
-    background: darkorange;
-    height: 1px;
-    transition: all 0.4s ease-in;
-  }
-
-  :hover {
-    color: darkorange;
-    ::after {
-      width: 100%;
-    }
-  }
 `
 
-const LinkText = styled.p`
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  margin: 0;
-`
-
-const Links = ({ to, name }) => (
-  <LinkContainer>
-    <StyledLink to={to}>
-      <LinkText>{name}</LinkText>
-    </StyledLink>
-  </LinkContainer>
-)
-
-const HeaderText = styled.h1`
-  margin: 5px;
-  text-align: center;
-`
-
-const Header = () => (
-  <>
-    <HeaderText>Code</HeaderText>
-    <HeaderText>for</HeaderText>
-    <HeaderText>Community</HeaderText>
-  </>
-)
-
-const Sidebar = ({ programme }) => {
+function ResponsiveDrawer(props) {
   const data = useStaticQuery(graphql`
     query {
       allMdx(
@@ -100,32 +78,130 @@ const Sidebar = ({ programme }) => {
           }
         }
       }
+      file(name: { eq: "logo_220x64" }, extension: { eq: "png" }) {
+        childImageSharp {
+          fixed(width: 220) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
     }
   `)
 
   const links = data.allMdx.edges
-    .filter(edge => edge.node.frontmatter.programme === programme)
+    .filter(edge => edge.node.frontmatter.programme === props.programme)
     .map(edge => (
-      <Links
-        to={edge.node.frontmatter.slug}
-        name={edge.node.frontmatter.title}
-      />
+      <StyledLink to={edge.node.frontmatter.slug}>
+        <ListItem button key={edge.node.frontmatter.title}>
+          <ListItemText primary={edge.node.frontmatter.title} />
+        </ListItem>
+      </StyledLink>
     ))
 
+  const { window } = props
+  const classes = useStyles()
+  const theme = useTheme()
+  const [mobileOpen, setMobileOpen] = React.useState(false)
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
+  }
+
+  const drawer = (
+    <div>
+      {/* <div className={classes.toolbar} /> */}
+      <StyledLink to="/" >
+          <Img fixed={data.file.childImageSharp.fixed} alt="logo" style={{margin: '10px 0'}}/>
+      </StyledLink>
+
+      <Divider />
+      <List>
+        <StyledLink to={"/"}>
+          <ListItem button key={"Home"}>
+            <ListItemText primary={"Home"} />
+          </ListItem>
+        </StyledLink>
+        <StyledLink to={"/about"}>
+          <ListItem button key={"About"}>
+            <ListItemText primary={"About"} />
+          </ListItem>
+        </StyledLink>
+        <StyledLink to={"/contact"}>
+          <ListItem button key={"Contact"}>
+            <ListItemText primary={"Contact Us"} />
+          </ListItem>
+        </StyledLink>
+        <StyledLink to={"/programmes"}>
+          <ListItem button key={"Programmes"}>
+            <ListItemText primary={"Programmes"} />
+          </ListItem>
+        </StyledLink>
+      </List>
+
+      <Divider />
+      <List>{links}</List>
+    </div>
+  )
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined
+
   return (
-    <SidebarContainer>
-      <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-        <Header />
-      </Link>
-      <Border />
-        <Links to="/" name="Home" />
-        <Links to="/about" name="About" />
-        <Links to="/contact" name="Contact Us" />
-        <Links to="/programmes" name="Programmes" />
-      <Border />
-      {links}
-    </SidebarContainer>
+    <div className={classes.root}>
+      <CssBaseline />
+
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar>
+          <Typography variant="h6" noWrap className={classes.appBarText}>
+            {props.programme}
+          </Typography>          
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="end"
+            onClick={handleDrawerToggle}
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+
+      <nav className={classes.drawer} aria-label="mailbox folders">
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+        <Hidden smUp implementation="css">
+          <Drawer
+            container={container}
+            variant="temporary"
+            anchor={theme.direction === "rtl" ? "right" : "left"}
+            open={mobileOpen}
+            onClose={handleDrawerToggle}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+
+        <Hidden xsDown implementation="css">
+          <Drawer
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            variant="permanent"
+            open
+          >
+            {drawer}
+          </Drawer>
+        </Hidden>
+      </nav>
+      <main className={classes.content}>{props.content}</main>
+    </div>
   )
 }
 
-export default Sidebar
+export default ResponsiveDrawer
