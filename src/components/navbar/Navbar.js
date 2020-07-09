@@ -26,13 +26,10 @@ const Navigation = styled.nav`
   }
 
   @media (max-width: 768px) {
-    padding-left: 0;
-    ${"" /* position: sticky; */}
     height: 8vh;
     top: 0;
     left: 0;
     right: 0;
-    left: 0;
   }
 `
 
