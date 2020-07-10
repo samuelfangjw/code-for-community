@@ -6,7 +6,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 const Content = styled.div`
   margin: 20px;
-  flex-grow: 1;
 `
 
 export default function Template({
@@ -32,7 +31,7 @@ export default function Template({
   const content = (
     <Content>
       <h1>{frontmatter.title}</h1>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      <MDXRenderer style={{}}>{data.mdx.body}</MDXRenderer>
     </Content>
   )
 
