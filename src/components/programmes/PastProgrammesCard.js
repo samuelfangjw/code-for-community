@@ -90,7 +90,8 @@ const PastProgrammesCard = () => {
       infinite={true}
       autoPlay={true}
       autoPlaySpeed={3000}
-      removeArrowOnDeviceType={["tablet", "mobile"]}
+      draggable={false}
+      swipeable={false}
     >
       {content}
     </Carousel>
