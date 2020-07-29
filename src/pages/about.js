@@ -15,6 +15,7 @@ const Text = styled.p`
 
 const AboutPage = ({ data }) => (
   <Layout>
+    <SEO title="About" />
     <AboutBanner />
     <h1 style={{ textAlign: "center", margin: "20px auto" }}>Who are we?</h1>
     <Text>

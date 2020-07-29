@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Code For Community`,
-    description: `Code For Community`,
-    author: "",
+    description: `Home of Code For Community`,
   },
   plugins: [
     {
