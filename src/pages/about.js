@@ -31,7 +31,9 @@ const AboutPage = ({ data }) => (
     </Text>
     <h1 style={{ textAlign: "center", margin: "20px auto" }}>Meet the Team!</h1>
     <AboutCard about={data.bimlesh.edges[0].node.frontmatter} />
+    <AboutCard about={data.garytan.edges[0].node.frontmatter} />
     <AboutCard about={data.adele.edges[0].node.frontmatter} />
+    <AboutCard about={data.arifah.edges[0].node.frontmatter} />
     <h1 style={{ textAlign: "center", margin: "20px auto" }}>
       Not Forgetting Our Partners
     </h1>
@@ -65,8 +67,50 @@ export const pageQuery = graphql`
       }
     }
 
+    garytan: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/garytan/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            name
+            title
+            description
+            profilePicture {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     adele: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/adele_chiew/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            name
+            title
+            description
+            profilePicture {
+              childImageSharp {
+                fixed(width: 200, height: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    arifah: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/arifah/" } }
     ) {
       edges {
         node {

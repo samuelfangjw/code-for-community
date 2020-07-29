@@ -6,9 +6,9 @@ const Container = styled.div`
   display: flex;
   flex-flow: row wrap;
   width: 90%;
-  margin: 2rem auto;
+  margin: 3rem auto;
   color: black;
-  justify-content: space-between;
+  justify-content: flex-start;
 `
 
 const ImageContainer = styled.div`
@@ -18,6 +18,7 @@ const ImageContainer = styled.div`
   border-radius: 50%;
   margin: 0 20px;
   margin-bottom: 25px;
+  margin-right: 30px;
 `
 
 const TextContainer = styled.div`
