@@ -55,10 +55,10 @@ const AboutSection2 = () => {
         <h1 style={{ marginTop: "20px" }}>Impacting our Community</h1>
         <Text>
           With the help of our volunteers, we design programmes to teach
-          compututational thinking skills, robotics and visual literacy to
+          computational thinking skills, robotics and visual literacy to
           children in a meaningful and engaging way. Volunteers who are assigned
           to students stay on for extended periods of time so that they can get
-          to know their student well and serve as positive role models for them
+          to know their student well and serve as positive role models for them.
         </Text>
       </TextContainer>
     </Container>

@@ -116,24 +116,9 @@ function ResponsiveDrawer(props) {
 
       <Divider />
       <List>
-        <StyledLink to={"/"}>
-          <ListItem button key={"Home"}>
-            <ListItemText primary={"Home"} />
-          </ListItem>
-        </StyledLink>
-        <StyledLink to={"/about"}>
-          <ListItem button key={"About"}>
-            <ListItemText primary={"About"} />
-          </ListItem>
-        </StyledLink>
-        <StyledLink to={"/contact"}>
-          <ListItem button key={"Contact"}>
-            <ListItemText primary={"Contact Us"} />
-          </ListItem>
-        </StyledLink>
         <StyledLink to={"/programmes"}>
           <ListItem button key={"Programmes"}>
-            <ListItemText primary={"Programmes"} />
+            <ListItemText primary={"All Programmes"} />
           </ListItem>
         </StyledLink>
       </List>
@@ -152,18 +137,18 @@ function ResponsiveDrawer(props) {
 
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" noWrap className={classes.appBarText}>
-            {props.programme}
-          </Typography>          
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            edge="end"
+            edge="start"
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
             <MenuIcon />
           </IconButton>
+          <Typography variant="h6" noWrap className={classes.appBarText}>
+            {props.programme}
+          </Typography>  
         </Toolbar>
       </AppBar>
 

@@ -103,7 +103,7 @@ const HomeBanner = () => {
       file(name: { eq: "cap_image" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(quality: 70, maxWidth: 1600) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
       }

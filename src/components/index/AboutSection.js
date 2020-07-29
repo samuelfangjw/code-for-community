@@ -27,7 +27,6 @@ const TextContainer = styled.div`
 const Text = styled.p`
   margin: 20px 40px;
   font-size: larger;
-  font-weight: 700;
   }
 `
 
@@ -59,7 +58,7 @@ const AboutSection = () => {
               opportunities for children in underserved communities. Through
               computing, we aim to help children develop problem solving skills
               which they can then apply to other areas of their life. Our
-              acomplished volunteers also serve as inpiration and a positive
+              accomplished volunteers also serve as inspiration and a positive
               role model for the children to emulate.
             </Text>
           </div>
