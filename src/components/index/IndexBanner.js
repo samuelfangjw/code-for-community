@@ -2,7 +2,9 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import scrollTo from 'gatsby-plugin-smoothscroll';
+import scrollTo from "gatsby-plugin-smoothscroll"
+import ImageLoader from "./ImageLoader"
+import styles from "./IndexBannerStyles.css"
 
 const BackgroundContainer = styled.div`
   height: 100vh;
@@ -25,7 +27,7 @@ const ForegroundContainer = styled.div`
   height: 100%;
   width: 100%;
   color: white;
-  z-index: 1;
+  z-index: 10;
 `
 
 const HeaderText = styled.h1`
@@ -118,20 +120,26 @@ const HomeBanner = () => {
     }
   `)
 
+  const foreground = (
+    <ForegroundContainer>
+      <TextContainer>
+        <HeaderText>Enriching the community one</HeaderText>
+        <HeaderText>child at a time</HeaderText>
+        <Button to="/programmes">Discover Our Programmes</Button>
+      </TextContainer>
+      <AnimatedArrow>
+        <Arrow onClick={() => scrollTo("#about")} />
+        <ScrollText onClick={() => scrollTo("#about")}>
+          Scroll down to find out more
+        </ScrollText>
+      </AnimatedArrow>
+    </ForegroundContainer>
+  )
+
   return (
     <BackgroundContainer>
-      <Image src={data.file.childImageSharp.fluid.src} />
-      <ForegroundContainer>
-        <TextContainer>
-          <HeaderText>Enriching the community one</HeaderText>
-          <HeaderText>child at a time</HeaderText>
-          <Button to="/programmes">Discover Our Programmes</Button>
-        </TextContainer>
-        <AnimatedArrow>
-          <Arrow onClick={() => scrollTo('#about')} />
-          <ScrollText onClick={() => scrollTo('#about')}>Scroll down to find out more</ScrollText>
-        </AnimatedArrow>
-      </ForegroundContainer>
+      <ImageLoader src={data.file.childImageSharp.fluid.src} foreground={foreground} />
+      {/* {foreground} */}
     </BackgroundContainer>
   )
 }
