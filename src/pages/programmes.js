@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 import ProgrammesBanner from "../components/programmes/ProgrammesBanner"
 import styled from "styled-components"
 import PastProgrammesCard from "../components/programmes/PastProgrammesCard"
+import LimitWidth from "../components/LimitWidth"
 
 const Text = styled.h3`
   margin: 10px 10vw;
@@ -42,14 +43,18 @@ const ProjectsPage = ({ data }) => {
     <Layout>
       <SEO title="Programmes" />
       <ProgrammesBanner />
-      <Header>Our programmes</Header>
-      <Text>
-        We design and conduct computing related lessons for children ranging from basic programming skills, to robotics, to visual literacy courses. We tailor the lessons to suit the ability level of our students and aim for a 1-1 volunteer to student ratio so each child gets individual attention.
-      </Text>
-      <Text>
-        Explore our current programmes below!
-      </Text>
-      <Header>Current Programmes</Header>
+      <LimitWidth>
+        <Header>Our programmes</Header>
+        <Text>
+          We design and conduct computing related lessons for children ranging
+          from basic programming skills, to robotics, to visual literacy
+          courses. We tailor the lessons to suit the ability level of our
+          students and aim for a 1-1 volunteer to student ratio so each child
+          gets individual attention.
+        </Text>
+        <Text>Explore our current programmes below!</Text>
+        <Header>Current Programmes</Header>
+      </LimitWidth>
       <Content>
         <FlexBox>{upcomingContent}</FlexBox>
         <Header>Past Programmes</Header>
