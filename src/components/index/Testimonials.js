@@ -6,6 +6,7 @@ import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import Card from "@material-ui/core/Card"
 import { Textfit } from "react-textfit"
+import FitText from '@kennethormandy/react-fittext'
 
 const Header = styled.h1`
   margin: 0;
@@ -26,7 +27,7 @@ const Container = styled.div`
   flex-flow: row nowrap;
   justify-content: space-around;
   border-radius: 5px;
-  margin: 0 30px;
+  margin: 30px;
   height: 300px;
   align-items: center;
 
@@ -70,14 +71,19 @@ const Name = styled.h3`
   }
 `
 
-const Text = styled.p`
+const Text = styled.div`
   margin: 0 25px;
-  text-align: justify;
-  font-size: 1.2vw;
+  text-align: center;
+  height: 280px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  overflow: hidden;
 
   @media (max-width: 768px) {
-    font-size: 0.8rem;
     margin: 10px auto;
+    height: 530px;
+    justify-content: flex-start;
   }
 `
 
@@ -139,7 +145,7 @@ const Testimonials = props => {
           <Name>{edge.node.frontmatter.name}</Name>
         </div>
         <Text>
-          <Textfit mode="multi">{edge.node.frontmatter.quote}</Textfit>
+          <FitText compressor={2}>{edge.node.frontmatter.quote}</FitText>
         </Text>
       </Container>
     </CardContainer>
