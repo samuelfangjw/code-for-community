@@ -8,7 +8,7 @@ import styled from "styled-components"
 import PastProgrammesCard from "../components/programmes/PastProgrammesCard"
 import LimitWidth from "../components/LimitWidth"
 
-const Text = styled.h3`
+const Text = styled.p`
   margin: 10px 10vw;
   text-align: justify;
 `
