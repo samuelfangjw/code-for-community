@@ -42,13 +42,10 @@ const TextContainer = styled.div`
   color: white;
   margin: auto;
   align-items: center;
-  transform: translateY(-20%);
   max-width: 90%;
-  text-shadow: 0px 0px 1px #111111;
-
-  @media (max-width: 768px) {
-    transform: translateY(-10%);
-  }
+  border-radius: 5px;
+  padding: 30px;
+  ${'' /* background: rgba(0, 0, 0, 0.8); */}
 `
 
 const Button = styled(Link)`

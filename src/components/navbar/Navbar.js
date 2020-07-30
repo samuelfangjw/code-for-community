@@ -15,7 +15,7 @@ const Navigation = styled.nav`
   ${"" /* border-bottom: 2px solid #33333320; */}
   margin: 0 auto;
   padding: 0 5vw;
-  z-index: 2;
+  z-index: 20;
   align-self: center;
   background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
 
