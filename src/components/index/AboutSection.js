@@ -37,7 +37,7 @@ const Image = styled(Img)`
 const AboutSection = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "20171021_134916" }, extension: { eq: "jpg" }) {
+      file(name: { eq: "index1" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1600) {
             ...GatsbyImageSharpFluid

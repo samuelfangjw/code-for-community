@@ -106,7 +106,7 @@ const ScrollText = styled.div`
 const HomeBanner = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "cap_image" }, extension: { eq: "jpg" }) {
+      file(name: { eq: "index_banner" }, extension: { eq: "jpg" }) {
         childImageSharp {
           fluid(quality: 70, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
@@ -135,7 +135,6 @@ const HomeBanner = () => {
   return (
     <BackgroundContainer>
       <ImageLoader src={data.file.childImageSharp.fluid.src} foreground={foreground} />
-      {/* {foreground} */}
     </BackgroundContainer>
   )
 }
