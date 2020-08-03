@@ -17,7 +17,7 @@ class ImageLoader extends React.Component {
   }
 
   //image onLoad handler to update state to loaded
-  onLoad = () => {
+  componentDidMount = () => {
     this.state.loaded = true
     this.setState(() => ({ loaded: true }))
   }
