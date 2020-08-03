@@ -1,11 +1,9 @@
 import React from "react"
 
-const _loaded = {}
-
 class ImageLoader extends React.Component {
   //initial state: image loaded stage
   state = {
-    loaded: _loaded[this.props.src],
+    loaded: false,
   }
 
   //define our loading and loaded image classes
@@ -20,7 +18,7 @@ class ImageLoader extends React.Component {
 
   //image onLoad handler to update state to loaded
   onLoad = () => {
-    _loaded[this.props.src] = true
+    this.state.loaded = true
     this.setState(() => ({ loaded: true }))
   }
 
