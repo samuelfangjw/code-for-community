@@ -45,7 +45,6 @@ const TextContainer = styled.div`
   max-width: 90%;
   border-radius: 5px;
   padding: 30px;
-  ${'' /* background: rgba(0, 0, 0, 0.8); */}
 `
 
 const Button = styled(Link)`
