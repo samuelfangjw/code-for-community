@@ -23,7 +23,7 @@ const ImageContainer = styled.div`
 
 const TextContainer = styled.div`
   display: flex;
-  max-width: 75%;
+  max-width: 70%;
   flex-direction: column;
   text-align: justify;
   margin: 0 20px;
