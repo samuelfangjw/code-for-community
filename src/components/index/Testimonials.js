@@ -10,7 +10,6 @@ import FitText from '@kennethormandy/react-fittext'
 
 const Header = styled.h1`
   margin: 0;
-  padding-top: 20px;
   text-align: center;
 `
 

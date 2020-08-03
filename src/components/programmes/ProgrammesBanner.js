@@ -29,7 +29,7 @@ const TextContainer = styled.div`
 const ProgrammesBanner = () => {
   const data = useStaticQuery(graphql`
     query {
-      file(name: { eq: "programmes_cover" }, extension: { eq: "jpg" }) {
+      file(name: { eq: "programmes1" }, extension: { eq: "jpeg" }) {
         childImageSharp {
           fluid(quality: 80, maxWidth: 1600) {
             ...GatsbyImageSharpFluid_withWebp
