@@ -2,15 +2,17 @@ import React from "react"
 import styled from "styled-components"
 
 const Container = styled.div`
-  margin: 50px;
+  margin-bottom: 50px;
 `
 
-const Header = styled.h2`
+const Header = styled.h1`
   text-align: center;
+  margin: 20px auto;
 `
 
 const Text = styled.p`
-  font-size: larger;
+  margin: 10px;
+  text-align: justify;
 `
 
 const ContactText = () => (

@@ -10,7 +10,7 @@ import Partners from "../components/about/Partners"
 import LimitWidth from "../components/LimitWidth"
 
 const Text = styled.p`
-  margin: 10px 5vw;
+  margin: 10px;
   text-align: justify;
 `
 

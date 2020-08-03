@@ -9,7 +9,7 @@ import PastProgrammesCard from "../components/programmes/PastProgrammesCard"
 import LimitWidth from "../components/LimitWidth"
 
 const Text = styled.p`
-  margin: 10px 10vw;
+  margin: 10px;
   text-align: justify;
 `
 
@@ -44,7 +44,7 @@ const ProjectsPage = ({ data }) => {
       <SEO title="Programmes" />
       <ProgrammesBanner />
       <LimitWidth>
-        <Header>Our programmes</Header>
+        <Header>Our Programmes</Header>
         <Text>
           We design and conduct computing related lessons for children ranging
           from basic programming skills, to robotics, to visual literacy
