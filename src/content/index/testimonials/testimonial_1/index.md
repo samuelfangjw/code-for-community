@@ -1,5 +1,9 @@
 ---
-name: "Van"
-quote: "“Being a part of Code for Community is a joy. I learn new things and perspectives through every interaction with the students, staff and volunteers.”"
-cover_img: "p1.png"
+name: "Raisa"
+quote: "“Working with children and peers to explore computing concepts and develop fun projects is something I look forward to every week. Not only is it an absolute joy learning about all my mentees and students, but developing lessons and teaching with my peers has been a truly inspirational and educational experience."
+cover_img: "p2.png"
+order: 1
 ---
+
+original quote shortened to fit:
+“Working with children and peers to explore computing concepts and develop fun projects is something I look forward to every week. Not only is it an absolute joy learning about all my mentees and students, but developing lessons and teaching with my peers has been a truly inspirational and educational experience. I can safely say that my involvement with C4C has helped me grow in ways I could not have anticipated.”

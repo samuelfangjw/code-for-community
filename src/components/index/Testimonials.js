@@ -5,7 +5,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import Card from "@material-ui/core/Card"
-import { Textfit } from "react-textfit"
 import FitText from '@kennethormandy/react-fittext'
 
 const Header = styled.h1`
@@ -34,16 +33,13 @@ const Container = styled.div`
     flex-flow: column nowrap;
     justify-content: flex-start;
     height: 550px;
+    margin: 30px 5px;
   }
 `
 
 const ImageContainer = styled.div`
-  width: 10vw;
-  height: 10vw;
-  max-width: 150px;
-  min-width: 90px;
-  min-height: 90px;
-  max-height: 150px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin: auto;
   overflow: hidden;
@@ -78,9 +74,10 @@ const Text = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   overflow: hidden;
+  width: 100%;
 
   @media (max-width: 768px) {
-    margin: 10px auto;
+    margin: 10px 0;
     height: 530px;
     justify-content: flex-start;
   }
@@ -91,11 +88,13 @@ const Testimonials = props => {
     query {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/index/testimonials/" } }
+        sort: { fields: [frontmatter___order], order: ASC }
       ) {
         edges {
           node {
             frontmatter {
               name
+              order
               quote
               cover_img {
                 childImageSharp {
@@ -144,7 +143,7 @@ const Testimonials = props => {
           <Name>{edge.node.frontmatter.name}</Name>
         </div>
         <Text>
-          <FitText compressor={2}>{edge.node.frontmatter.quote}</FitText>
+          <FitText compressor={1.5} maxFontSize={16} minFontSize={10}>{edge.node.frontmatter.quote}</FitText>
         </Text>
       </Container>
     </CardContainer>
