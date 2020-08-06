@@ -12,15 +12,6 @@ const BackgroundContainer = styled.div`
   overflow: hidden;
 `
 
-const Image = styled.img`
-  position: absolute;
-  z-index: 0;
-  filter: blur(2px);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`
-
 const ForegroundContainer = styled.div`
   position: relative;
   display: flex;
