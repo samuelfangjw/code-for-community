@@ -52,7 +52,7 @@ const AboutSection = () => {
 
   return (
     <Parallax
-      blur={{ min: 15, max: -30 }}
+      blur={{ min: 15, max: -35 }}
       strength={-150}
       bgImage={data.file.childImageSharp.fluid.src}
       bgImageAlt="students interacting with volunteers"

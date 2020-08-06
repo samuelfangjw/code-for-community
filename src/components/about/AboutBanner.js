@@ -39,7 +39,7 @@ const AboutBanner = () => {
   `)
 
   return (
-    <BackgroundContainer fluid={data.file.childImageSharp.fluid}>
+    <BackgroundContainer fluid={data.file.childImageSharp.fluid} >
       <DarkLayer>
         <TextContainer>
           <h1> Our Story </h1>

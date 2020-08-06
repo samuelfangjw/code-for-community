@@ -46,7 +46,7 @@ const AboutSection2 = () => {
 
   return (
     <Container data-sal="slide-right" data-sal-easing="ease">
-      <Image fluid={data.file.childImageSharp.fluid} />
+      <Image fluid={data.file.childImageSharp.fluid} alt="image of volunteers with participants"/>
       <TextContainer
         data-sal="zoom-in"
         data-sal-easing="ease"
