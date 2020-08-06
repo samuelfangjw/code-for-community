@@ -27,6 +27,9 @@ const TextContainer = styled.div`
 const Text = styled.p`
   margin: 20px 40px;
   font-size: larger;
+
+  @media (max-width: 330px) {
+    font-size: smaller;
   }
 `
 
@@ -48,7 +51,12 @@ const AboutSection = () => {
   `)
 
   return (
-    <Parallax blur={10} strength={400}>
+    <Parallax
+      blur={{ min: 15, max: -30 }}
+      strength={-150}
+      bgImage={data.file.childImageSharp.fluid.src}
+      bgImageAlt="students interacting with volunteers"
+    >
       <div style={{ height: "100vh", display: "flex" }}>
         <TextContainer>
           <div>
@@ -64,12 +72,6 @@ const AboutSection = () => {
           </div>
         </TextContainer>
       </div>
-
-      <Background className="custom-bg">
-        <div style={{ width: "100vw", height: "140vh" }}>
-          <Image fluid={data.file.childImageSharp.fluid} />
-        </div>
-      </Background>
     </Parallax>
   )
 }
