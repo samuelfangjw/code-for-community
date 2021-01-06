@@ -13,7 +13,7 @@
     "@mdx-js/react": "^1.6.15",
     "@mui-treasury/components": "^1.9.1",
     "acorn": "^7.3.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.11.0",
     "chokidar": "^3.4.1",
     "gatsby": "^2.24.14",
